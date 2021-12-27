@@ -10,7 +10,7 @@ init()
 def main(url):
     option = webdriver.ChromeOptions()
     option.add_experimental_option("excludeSwitches", ["enable-logging"])
-    driver = webdriver.Chrome("C:\\Users\\USER\\OneDrive\\Desktop\\chromedriver\\chromedriver.exe", options=option)
+    driver = webdriver.Chrome("File Location Here With Double Slashes, Example: C:\\Users\\User\\ChromeWebDriver.exe", options=option)
     driver.set_window_size(777, 777)
     driver.get('https://zefoy.com')
     amount = 0
