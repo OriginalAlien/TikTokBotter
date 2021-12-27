@@ -7,7 +7,8 @@ Automatically Starts Again After Cool Down, You Can Have It Running In The Back 
 1. Download Python And Web Chrome Driver
 2. Install The Colorama, Selenium, And The Time Module For Python
 3. In The Code, Put The FIle Location For The Web Chrome Driver EXE
-4. Run It And Then Type Ur TikTok Video URL And It Will Start
+4. Run It And Then Type Ur TikTok Video URL And Solve The Captcha And It Will Start
+5. This Is In Beta So Expect Bugs & Errors.
 
 Preview:
 
