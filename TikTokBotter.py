@@ -3,19 +3,19 @@
 #kunai#5936 and gig:) (also i recommend to execute this when you have no cool downs so it functions more properly)
 import time
 from colorama import Fore
-import colorama
+from colorama import init
 from selenium import webdriver
-colorama.init()
+init()
 
 def main(url):
     option = webdriver.ChromeOptions()
     option.add_experimental_option("excludeSwitches", ["enable-logging"])
-    driver = webdriver.Chrome("WEB CHROME DRIVER EXE FILE PATH HERE (use double slashes since python doesnt support single slashes, example: c:\\user\\users\\webdrive.exe)", options=option)
+    driver = webdriver.Chrome("C:\\Users\\USER\\OneDrive\\Desktop\\chromedriver\\chromedriver.exe", options=option)
     driver.set_window_size(777, 777)
     driver.get('https://zefoy.com')
     amount = 0
 
-    captcha_finish = input(f"{Fore.YELLOW}\nPlease Solve The Captcha On The Website To Continue.\nType \"y\" Once You Finished The Captcha.\n\n> {Fore.WHITE}")
+    captcha_finish = input(f"{Fore.YELLOW}\nPlease Solve The Captcha To Continue.\nType \"y\" Once You Finished The Captcha.\n\n> {Fore.WHITE}")
 
     if captcha_finish == "y":
 
