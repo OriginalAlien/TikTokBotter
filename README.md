@@ -13,3 +13,5 @@ Automatically Starts Again After Cool Down, You Can Have It Running In The Back 
 Preview:
 
 ![image](https://user-images.githubusercontent.com/80835991/147433687-184804f6-5a63-4b7e-b951-549ed07e60d9.png)
+
+Notice, There Will Be Bugs With The Colors Not Displaying Properly. If You Want The Colors To Display Properly Then I Recommend Using Visual Studio Code To Execute Your Code.
