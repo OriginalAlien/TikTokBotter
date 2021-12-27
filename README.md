@@ -2,7 +2,7 @@
 This Is In Beta And I Will Be Updating It. Educational Purposes Only. Contact kunai#5936 For Assistance.
 
 Uses Zefoy To Bot Your TikToks!
-Automatically Starts Again After Cool Down, You Can Have It Running In The Back Groudn
+Automatically Starts Again After Cool Down, You Can Have It Running In The Back Ground
 
 1. Download Python And Web Chrome Driver
 2. Install The Colorama, Selenium, And The Time Module For Python
