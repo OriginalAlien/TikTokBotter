@@ -10,6 +10,8 @@ Automatically Starts Again After Cool Down, You Can Have It Running In The Back 
 4. Run It And Then Type Ur TikTok Video URL And Solve The Captcha And It Will Start
 5. This Is In Beta So Expect Bugs & Errors.
 
+
+This Can Now Be Left Over Night. --1/5/2022
 Preview:
 
 ![image](https://user-images.githubusercontent.com/80835991/147433687-184804f6-5a63-4b7e-b951-549ed07e60d9.png)
