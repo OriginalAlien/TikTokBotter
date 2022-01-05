@@ -8,7 +8,7 @@ def main(url):
     options = webdriver.ChromeOptions()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
     try:
-        driver = webdriver.Chrome("Use Double Slashes And Replace Chrome Driver Path Here, Example: C:\\USERS\\User\\OneDrive\\Desktop\\Chromedriver\\chromedriver.exe", options=options) #Put chromedriver.exe file loction between quotation marks using double back slashes.
+        driver = webdriver.Chrome("Replace chromedriver.exe Path Here With Double Slashes: C:\\USERS\\User\\OneDrive\\Desktop\\Chromedriver\\chromedriver.exe", options=options) #Put chromedriver.exe file loction between quotation marks using double back slashes.
     except Exception as DriverError:
         print(f"{Fore.LIGHTRED_EX}\nInvalid File Location For Chrome Driver Or File Location Hasn't Been Set Yet. Remember To Use Double Slashes.\nLine: 11\nStopped Program.\n")
         print(f"{DriverError}{Fore.WHITE}\n")
@@ -492,7 +492,8 @@ print(f"{Fore.LIGHTGREEN_EX}\nEnjoy!\n")
 print(f"\n{Fore.LIGHTWHITE_EX}Github: {Fore.WHITE}https://github.com/OriginalAlien")
 print(f"{Fore.LIGHTRED_EX}Download {Fore.LIGHTGREEN_EX}Chrome {Fore.LIGHTYELLOW_EX}Driver: {Fore.LIGHTBLUE_EX}https://chromedriver.chromium.org/downloads")
 print(f"{Fore.BLUE}Download Python: {Fore.YELLOW}https://python.org/download{Fore.WHITE}")
-video_url = input("\nVideo URL: ")
+
+video_url = input(f"\nVideo URL: ")
 
 while "tiktok" not in video_url:
     print(f"{Fore.RED}Please Enter A Valid Link.{Fore.WHITE}")
