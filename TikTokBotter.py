@@ -90,7 +90,7 @@ def main(url):
 
                     if Follow_Continue1 == True:
                         driver.find_element_by_xpath('//*[@id="sid"]/div/form/div/div/button').click()
-                        time.sleep(5)
+                        time.sleep(3)
                         try:
                             driver.find_element_by_xpath('//*[@id="c2VuZF9mb2xsb3dlcnNfdGlrdG9r"]/div[1]/div/form/button').click()
                             Follow_Continue2 = True
@@ -176,7 +176,7 @@ def main(url):
 
                     if Heart_Continue1 == True:
                         driver.find_element_by_xpath('//*[@id="sid2"]/div/form/div/div/button').click()
-                        time.sleep(5)
+                        time.sleep(3)
                         try:
                             driver.find_element_by_xpath('//*[@id="c2VuZE9nb2xsb3dlcnNfdGlrdG9r"]/div[1]/div/form/button').click()
                             Heart_Continue2 = True
@@ -258,7 +258,14 @@ def main(url):
 
                     if View_Continue1 == True:
                         driver.find_element_by_xpath('//*[@id="sid4"]/div/form/div/div/button').click()
-                        time.sleep(5)
+                        time.sleep(2)
+
+                        driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
+                        time.sleep(0.7)
+                        driver.find_element_by_xpath('//*[@id="main"]/div/div[4]/div/button').click()
+                        driver.find_element_by_xpath('//*[@id="sid4"]/div/form/div/input').send_keys(url)
+                        driver.find_element_by_xpath('//*[@id="sid4"]/div/form/div/div/button').click()
+                        time.sleep(3)
                         try:
                             driver.find_element_by_xpath('/html/body/div[4]/div[5]/div/div/div[1]/div/form/button').click()
                             View_Continue2 = True
@@ -309,6 +316,7 @@ def main(url):
 
                                 View_Seconds += 5
                                 views_cooldown += View_Seconds
+                                
                             except:
                                 print(f"{Fore.RED}An Error Occurred When Attempting To Get View's Cool Down. (Skipping){Fore.WHITE}")
                                 View_Minutes = 0
@@ -343,7 +351,7 @@ def main(url):
 
                     if Share_Continue1 == True:
                         driver.find_element_by_xpath('//*[@id="sid7"]/div/form/div/div/button').click()
-                        time.sleep(5)
+                        time.sleep(3)
                         try:
                             driver.find_element_by_xpath('//*[@id="c2VuZC9mb2xsb3dlcnNfdGlrdG9s"]/div[1]/div/form/button').click()
                             Share_Continue2 = True
@@ -477,7 +485,7 @@ print(f"""
 """)
 
 print(f"{Fore.YELLOW}________________{Fore.RED}!! NOTICE !!{Fore.YELLOW}_________________\n\n1. The Cool Down Finder In This Code Only\n   Supports 1-2 Digits.\n\n2. Educational Purpose Only, Not Responsible\n   If Anything Bad Happens To You.\n\n3. Contact Dreamer#5114 If You Need Assistance\n\n4. There Will Be Lots Of Logs Because Of The\n   Web Driver Logs So Most Text Besides Logs Will Be\n   Hilighted As A Color.\n\n5. Please Do Not Interact With Tabs With The Chrome\n   Web Driver When It's Running Since It Can Cause Errors.\n\n6. The Cool Down May Take Longer As Expected Because\n   Me No Know How To Make An Actual Timer Inside A Loop.\n\n7. Enjoy And Yeah!\n______________________________________________{Fore.WHITE}")
-print(f"{Fore.LIGHTGREEN_EX}\nUPDATES: Advanced Trouble Shooting & Detection, Checks If Zefoy Is Down Or Up, & It Can Now Be Left Over Night.")
+print(f"{Fore.LIGHTGREEN_EX}\nUPDATES: Advanced Trouble Shooting & Detection, Better Wait Time, & Anti Session Expire")
 print(f"{Fore.LIGHTGREEN_EX}\nMade By: Dreamer#5114 (Changed My Discord Tag) :)")
 print(f"{Fore.LIGHTGREEN_EX}\nAlso Credits To https://github.com/darkp3ter/ Since He Inspired Me To Make This.{Fore.WHITE}")
 print(f"{Fore.LIGHTGREEN_EX}Enjoy!\n")
