@@ -11,7 +11,7 @@ def main(url):
         driver = webdriver.Chrome("Use Double Slashes And Replace Chrome Driver Path Here, Example: C:\\USERS\\User\\OneDrive\\Desktop\\Chromedriver\\chromedriver.exe", options=options) #Put chromedriver.exe file loction between quotation marks using double back slashes.
     except Exception as DriverError:
         print(f"{Fore.LIGHTRED_EX}\nInvalid File Location For Chrome Driver Or File Location Hasn't Been Set Yet. Remember To Use Double Slashes.\nLine: 11\nStopped Program.\n")
-        print(f"{DriverError}{Fore.WHITE}")
+        print(f"{DriverError}{Fore.WHITE}\n")
         exit()
     driver.set_window_size(777, 777)
     driver.get('https://zefoy.com')
@@ -29,7 +29,7 @@ def main(url):
         pass
         print(f"{Fore.LIGHTGREEN_EX}\nZefoy Is Up!{Fore.WHITE}")
 
-    captcha_finish = input(f"{Fore.YELLOW}\nPlease Solve The Captcha To Continue.\nType \"y\" Once You Finished The Captcha.\n\n> {Fore.WHITE}")
+    captcha_finish = input(f"{Fore.YELLOW}\nPlease Solve The Captcha To Continue.\nType \"y\" Once You Finished The Captcha.\n{Fore.WHITE}> ")
     if captcha_finish == "y":
         while captcha_finish != True:
             try:
@@ -43,7 +43,7 @@ def main(url):
                     break
     
     while captcha_finish == True:
-        print(f"{Fore.LIGHTGREEN_EX}Captcha Is Solved, Starting Now!{Fore.WHITE}\n")
+        print(f"{Fore.LIGHTGREEN_EX}\nCaptcha Is Solved, Starting Now!{Fore.WHITE}\n")
 
         follows_cooldown = 0
         hearts_cooldown = 0
@@ -83,7 +83,7 @@ def main(url):
                         driver.find_element_by_xpath('//*[@id="sid"]/div/form/div/input').send_keys(url)
                         Follow_Continue1 = True
                     except:
-                        print(f"{Fore.RED}Follower Send Page Is Down.\nSkipping...{Fore.WHITE}")
+                        print(f"{Fore.RED}Follower Send Page Is Down.\nSkipping...{Fore.WHITE}\n")
                         Follow_Continue1 = False
                         Follow_Seconds = 0
                         Follow_Minutes = 0
@@ -115,11 +115,11 @@ def main(url):
                             Follow_Seconds += 5
                             follows_cooldown += Follow_Seconds
 
-                            print(f"{Fore.LIGHTGREEN_EX}Follow Cool Down Is {Fore.CYAN}{Follow_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Follow_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}")
+                            print(f"{Fore.LIGHTGREEN_EX}Follow Cool Down Is {Fore.CYAN}{Follow_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Follow_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
 
                         if Follow_Continue2 == True:
-                            print(f"{Fore.LIGHTGREEN_EX}\nSent Followers!\n{Fore.WHITE}")
-                            print(f"{Fore.YELLOW}Getting Cool Down...{Fore.WHITE}")
+                            print(f"{Fore.LIGHTGREEN_EX}\nSent Followers!\n{Fore.WHITE}\n")
+                            print(f"{Fore.YELLOW}Getting Cool Down...{Fore.WHITE}\n")
                             time.sleep(10)
                             Follow_Text = driver.find_element_by_xpath('/html/body/div[4]/div[2]/div/div/h4').text
 
@@ -140,12 +140,12 @@ def main(url):
                                 Follow_Seconds += 5
                                 follows_cooldown += Follow_Seconds
                             except:
-                                print(f"{Fore.RED}An Error Occurred When Attempting To Get Follow's Cool Down. (Skipping){Fore.WHITE}")
+                                print(f"{Fore.RED}An Error Occurred When Attempting To Get Follow's Cool Down. (Skipping){Fore.WHITE}\n")
                                 Follow_Minutes = 0
                                 Follow_Seconds = 0
 
 
-                            print(f"{Fore.LIGHTGREEN_EX}Follow Cool Down Is {Fore.CYAN}{Follow_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Follow_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}")
+                            print(f"{Fore.LIGHTGREEN_EX}Follow Cool Down Is {Fore.CYAN}{Follow_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Follow_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
 
                             driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
@@ -155,13 +155,13 @@ def main(url):
                         pass
 
                 except Exception as Follows_Error:
-                    print(f"{Fore.RED}Error Occurred When Attempting To Send Follows.\nError: {Follows_Error}{Fore.WHITE}")
+                    print(f"{Fore.RED}Error Occurred When Attempting To Send Follows.\nError: {Follows_Error}{Fore.WHITE}\n")
+                    driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
 
 
                 try:
                     #Hearts
-                    driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
                     hearts_cooldown = 0
 
                     try:
@@ -169,7 +169,7 @@ def main(url):
                         driver.find_element_by_xpath('//*[@id="sid2"]/div/form/div/input').send_keys(url)
                         Heart_Continue1 = True
                     except:
-                        print(f"{Fore.RED}Heart Send Page Is Down.\nSkipping...{Fore.WHITE}")
+                        print(f"{Fore.RED}Heart Send Page Is Down.\nSkipping...{Fore.WHITE}\n")
                         Heart_Continue1 = False
                         Heart_Seconds = 0
                         Heart_Minutes = 0
@@ -202,11 +202,11 @@ def main(url):
                             Heart_Seconds += 7
                             hearts_cooldown += Heart_Seconds
 
-                            print(f"{Fore.LIGHTGREEN_EX}Heart Cool Down Is {Fore.CYAN}{Heart_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Heart_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}")
+                            print(f"{Fore.LIGHTGREEN_EX}Heart Cool Down Is {Fore.CYAN}{Heart_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Heart_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
 
                         if Heart_Continue2 == True:
-                            print(f"{Fore.LIGHTGREEN_EX}\nSent Hearts!\n{Fore.WHITE}")
-                            print(f"{Fore.YELLOW}Getting Cool Down...{Fore.WHITE}")
+                            print(f"{Fore.LIGHTGREEN_EX}\nSent Hearts!\n{Fore.WHITE}\n")
+                            print(f"{Fore.YELLOW}Getting Cool Down...{Fore.WHITE}\n")
                             time.sleep(10)
 
                             Heart_Text = driver.find_element_by_xpath("/html/body/div[4]/div[3]/div/div/h4").text #Finding the cooldown for the heart's xpath is for some reason inaccurate.
@@ -228,11 +228,11 @@ def main(url):
                                 Heart_Seconds += 5
                                 hearts_cooldown += Heart_Seconds
                             except:
-                                print(f"{Fore.RED}An Error Occurred When Attempting To Get Heart's Cool Down. (Skipping){Fore.WHITE}")
+                                print(f"{Fore.RED}An Error Occurred When Attempting To Get Heart's Cool Down. (Skipping){Fore.WHITE}\n")
                                 Heart_Minutes = 0
                                 Heart_Seconds = 0
 
-                            print(f"{Fore.LIGHTGREEN_EX}Heart Cool Down Is {Fore.CYAN}{Heart_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Heart_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}")
+                            print(f"{Fore.LIGHTGREEN_EX}Heart Cool Down Is {Fore.CYAN}{Heart_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Heart_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
 
                             driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
                         else:
@@ -241,17 +241,17 @@ def main(url):
                         pass
                     
                 except Exception as Hearts_Error:
-                    print(f"{Fore.RED}Error Occurred When Attempting To Send Hearts.\nError: {Hearts_Error}{Fore.WHITE}")
+                    print(f"{Fore.RED}Error Occurred When Attempting To Send Hearts.\nError: {Hearts_Error}{Fore.WHITE}\n")
+                    driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
                 try:
                     #Views
-                    driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
                     try:
                         driver.find_element_by_xpath('//*[@id="main"]/div/div[4]/div/button').click()
                         driver.find_element_by_xpath('//*[@id="sid4"]/div/form/div/input').send_keys(url)
                         View_Continue1 = True
                     except:
-                        print(f"{Fore.RED}Views Send Page Is Down.\nSkipping...{Fore.WHITE}")
+                        print(f"{Fore.RED}Views Send Page Is Down.\nSkipping...{Fore.WHITE}\n")
                         View_Continue1 = False
                         View_Seconds = 0
                         View_Minutes = 0
@@ -291,11 +291,11 @@ def main(url):
                             View_Seconds += 5
                             views_cooldown += View_Seconds
 
-                            print(f"{Fore.LIGHTGREEN_EX}View Cool Down Is {Fore.CYAN}{View_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{View_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}")
+                            print(f"{Fore.LIGHTGREEN_EX}View Cool Down Is {Fore.CYAN}{View_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{View_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
 
                         if View_Continue2 == True:
                             print(f"{Fore.LIGHTGREEN_EX}\nSent Views!\n{Fore.WHITE}")
-                            print(f"{Fore.YELLOW}Getting Cool Down...{Fore.WHITE}")
+                            print(f"{Fore.YELLOW}Getting Cool Down...{Fore.WHITE}\n")
                             time.sleep(10)
 
                             View_Text = driver.find_element_by_xpath("/html/body/div[4]/div[5]/div/div/h4").text
@@ -318,11 +318,11 @@ def main(url):
                                 views_cooldown += View_Seconds
                                 
                             except:
-                                print(f"{Fore.RED}An Error Occurred When Attempting To Get View's Cool Down. (Skipping){Fore.WHITE}")
+                                print(f"{Fore.RED}An Error Occurred When Attempting To Get View's Cool Down. (Skipping){Fore.WHITE}\n")
                                 View_Minutes = 0
                                 View_Seconds = 0
 
-                            print(f"{Fore.LIGHTGREEN_EX}View Cool Down Is {Fore.CYAN}{View_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{View_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}")
+                            print(f"{Fore.LIGHTGREEN_EX}View Cool Down Is {Fore.CYAN}{View_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{View_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
 
                             driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
@@ -333,19 +333,18 @@ def main(url):
                         pass
                         
                 except Exception as Views_Error:
-                    print(f"{Fore.RED}Error Occurred When Attempting To Send Views.\nError: {Views_Error}{Fore.WHITE}")
+                    print(f"{Fore.RED}Error Occurred When Attempting To Send Views.\nError: {Views_Error}{Fore.WHITE}\n")
+                    driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
                 try:
                     #Shares
-                    driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
-
                     try:
                         driver.find_element_by_xpath('//*[@id="main"]/div/div[5]/div/button').click()
                         driver.find_element_by_xpath('//*[@id="sid7"]/div/form/div/input').send_keys(url)
                         Share_Continue1 = True
                     except:
                         Share_Continue1 = False
-                        print(f"{Fore.RED}Share Send Page Is Down.\nSkipping...{Fore.WHITE}")
+                        print(f"{Fore.RED}Share Send Page Is Down.\nSkipping...\n{Fore.WHITE}")
                         Share_Minutes = 0
                         Share_Seconds = 0
 
@@ -376,11 +375,11 @@ def main(url):
                             Share_Seconds += 5
                             shares_cooldown += Share_Seconds
 
-                            print(f"{Fore.LIGHTGREEN_EX}Share Cool Down Is {Fore.CYAN}{Share_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Share_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}")
+                            print(f"{Fore.LIGHTGREEN_EX}Share Cool Down Is {Fore.CYAN}{Share_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Share_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
 
                         if Share_Continue2 == True:
                             print(f"{Fore.LIGHTGREEN_EX}\nSent Shares!\n{Fore.WHITE}")
-                            print(f"{Fore.YELLOW}Getting Cool Down...{Fore.WHITE}")
+                            print(f"{Fore.YELLOW}Getting Cool Down...{Fore.WHITE}\n")
                             time.sleep(10)
                             Share_Text = driver.find_element_by_xpath('/html/body/div[4]/div[6]/div/div/h4').text
 
@@ -401,16 +400,17 @@ def main(url):
                                 Share_Seconds += 5
                                 shares_cooldown += Share_Seconds
                             except:
-                                print(f"{Fore.RED}An Error Occurred When Attempting To Get Share's Cool Down. (Skipping){Fore.WHITE}")
+                                print(f"{Fore.RED}An Error Occurred When Attempting To Get Share's Cool Down. (Skipping){Fore.WHITE}\n")
                                 Share_Minutes = 0
                                 Share_Seconds = 0
 
-                            print(f"{Fore.LIGHTGREEN_EX}Share Cool Down Is {Fore.CYAN}{Share_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Share_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}")
+                            print(f"{Fore.LIGHTGREEN_EX}Share Cool Down Is {Fore.CYAN}{Share_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Share_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
 
                             driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
                 except Exception as Shares_Error:
-                    print(f"{Fore.RED}Error Occurred When Attempting To Send Shares.\nError: {Shares_Error}{Fore.WHITE}")
+                    print(f"{Fore.RED}Error Occurred When Attempting To Send Shares.\nError: {Shares_Error}{Fore.WHITE}\n")
+                    driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
             except Exception as AllError:
                 print(f"{Fore.LIGHTRED_EX}An Error Occured When Trying To Send Followers, Hearts, Views, & Shares.\nMost Likely Zefoy Is Down, Attempting To Troubleshoot.\n")
@@ -420,10 +420,10 @@ def main(url):
                         time.sleep(20)
                         driver.refresh()
                         if driver.title != "zefoy.com | 502: Bad gateway":
-                            print(f"{Fore.LIGHTGREEN_EX}\nFixed! Zefoy is Back Up. Continuing.\n")
+                            print(f"{Fore.LIGHTGREEN_EX}\nFixed! Zefoy is Back Up.\n")
                             break
                 else:
-                    print(f"{Fore.LIGHTRED_EX}\nCouldn't Fix The Problem. Maybe It's Your Internet?\nError: {AllError}\n\nExitted Program.{Fore.WHITE}")
+                    print(f"{Fore.LIGHTRED_EX}Couldn't Fix The Problem. Maybe It's Your Internet?\nError: {AllError}\n\nExitted Program.{Fore.WHITE}\n")
 
             
             amount += 1
@@ -437,24 +437,24 @@ def main(url):
 
             time.sleep(AntiAFKTime)
             driver.refresh()
-            print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring. {Fore.LIGHTBLUE_EX}(1/5 Cool Down){Fore.WHITE}")
+            print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring. {Fore.LIGHTBLUE_EX}(1/5 Cool Down){Fore.WHITE}\n")
             print(f"{Fore.RED}!! Reminder !!\nPlease Do Not Interact With The Tabs In Chrome Web Driver As It Can Mess Up The Code And Give Errors\n")
 
             time.sleep(AntiAFKTime)
             driver.refresh()
-            print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring. {Fore.LIGHTBLUE_EX}(2/5 Cool Down){Fore.WHITE}")
+            print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring. {Fore.LIGHTBLUE_EX}(2/5 Cool Down){Fore.WHITE}\n")
 
             time.sleep(AntiAFKTime)
             driver.refresh()
-            print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring {Fore.LIGHTBLUE_EX}(3/5 Cool Down){Fore.WHITE}")
+            print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring {Fore.LIGHTBLUE_EX}(3/5 Cool Down){Fore.WHITE}\n")
 
             time.sleep(AntiAFKTime)
             driver.refresh()
-            print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring {Fore.LIGHTBLUE_EX}(4/5 Cool Down){Fore.WHITE}")
+            print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring {Fore.LIGHTBLUE_EX}(4/5 Cool Down){Fore.WHITE}\n")
 
             time.sleep(AntiAFKTime)
             driver.refresh()
-            print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring. {Fore.LIGHTBLUE_EX}(5/5 Cool Down){Fore.WHITE}")
+            print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring. {Fore.LIGHTBLUE_EX}(5/5 Cool Down){Fore.WHITE}\n")
 
             follows_cooldown = 0
             hearts_cooldown = 0
@@ -485,19 +485,18 @@ print(f"""
 """)
 
 print(f"{Fore.YELLOW}________________{Fore.RED}!! NOTICE !!{Fore.YELLOW}_________________\n\n1. The Cool Down Finder In This Code Only\n   Supports 1-2 Digits.\n\n2. Educational Purpose Only, Not Responsible\n   If Anything Bad Happens To You.\n\n3. Contact Dreamer#5114 If You Need Assistance\n\n4. There Will Be Lots Of Logs Because Of The\n   Web Driver Logs So Most Text Besides Logs Will Be\n   Hilighted As A Color.\n\n5. Please Do Not Interact With Tabs With The Chrome\n   Web Driver When It's Running Since It Can Cause Errors.\n\n6. The Cool Down May Take Longer As Expected Because\n   Me No Know How To Make An Actual Timer Inside A Loop.\n\n7. Enjoy And Yeah!\n______________________________________________{Fore.WHITE}")
-print(f"{Fore.LIGHTGREEN_EX}\nUPDATES: Advanced Trouble Shooting & Detection, Better Wait Time, & Anti Session Expire")
+print(f"{Fore.LIGHTGREEN_EX}\nUPDATES: Advanced Trouble Shooting & Detection, Anti-Session Expire, Checks If Zefoy Is Down, & You Can Now Leave This Overnight Because Of The Advanced Troubleshooting.\n         (But Still Expect Some Bugs.)")
 print(f"{Fore.LIGHTGREEN_EX}\nMade By: Dreamer#5114 (Changed My Discord Tag) :)")
 print(f"{Fore.LIGHTGREEN_EX}\nAlso Credits To https://github.com/darkp3ter/ Since He Inspired Me To Make This.{Fore.WHITE}")
-print(f"{Fore.LIGHTGREEN_EX}Enjoy!\n")
+print(f"{Fore.LIGHTGREEN_EX}\nEnjoy!\n")
 print(f"\n{Fore.LIGHTWHITE_EX}Github: {Fore.WHITE}https://github.com/OriginalAlien")
 print(f"{Fore.LIGHTRED_EX}Download {Fore.LIGHTGREEN_EX}Chrome {Fore.LIGHTYELLOW_EX}Driver: {Fore.LIGHTBLUE_EX}https://chromedriver.chromium.org/downloads")
 print(f"{Fore.BLUE}Download Python: {Fore.YELLOW}https://python.org/download{Fore.WHITE}")
-
 video_url = input("\nVideo URL: ")
 
 while "tiktok" not in video_url:
     print(f"{Fore.RED}Please Enter A Valid Link.{Fore.WHITE}")
-    video_url = input("\nVideo URL: ")
+    video_url = input(f"\nVideo URL: {Fore.WHITE}")
     if "tiktok" in video_url:
         print(f"{Fore.LIGHTGREEN_EX}Opening Chrome Web Driver...{Fore.WHITE}")
         break
