@@ -49,7 +49,6 @@ def main(url):
         hearts_cooldown = 0
         views_cooldown = 0
         shares_cooldown = 0
-
         Follow_Continue1 = False
         Follow_Continue2 = False
         Heart_Continue1 = False
@@ -98,6 +97,7 @@ def main(url):
                             print(f"{Fore.RED}Follow Cool Down Isn't Finished Yet. Getting Cool Down And Skipping...\n {Fore.WHITE}")
                             Follow_Continue2 = False
                             Follow_Text = driver.find_element_by_xpath("/html/body/div[4]/div[2]/div/div/h4").text
+                            time.sleep(3)
 
                             if Follow_Text[13] == " ":
                                 Follow_Minutes = int(Follow_Text[12])
@@ -147,8 +147,6 @@ def main(url):
 
                             print(f"{Fore.LIGHTGREEN_EX}Follow Cool Down Is {Fore.CYAN}{Follow_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Follow_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
 
-                            driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
-
                         else:
                             pass
                     else:
@@ -162,6 +160,7 @@ def main(url):
 
                 try:
                     #Hearts
+                    driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
                     hearts_cooldown = 0
 
                     try:
@@ -185,6 +184,7 @@ def main(url):
                             print(f"{Fore.RED}Heart Cool Down Isn't Finished Yet. Getting Cool Down And Skipping...\n {Fore.WHITE}")
                             Heart_Continue2 = False
                             Heart_Text = driver.find_element_by_xpath("/html/body/div[4]/div[3]/div/div/h4").text
+                            time.sleep(3)
 
                             if Heart_Text[13] == " ":
                                 Heart_Minutes = int(Heart_Text[12])
@@ -242,10 +242,10 @@ def main(url):
                     
                 except Exception as Hearts_Error:
                     print(f"{Fore.RED}Error Occurred When Attempting To Send Hearts.\nError: {Hearts_Error}{Fore.WHITE}\n")
-                    driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
                 try:
                     #Views
+                    driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
                     try:
                         driver.find_element_by_xpath('//*[@id="main"]/div/div[4]/div/button').click()
                         driver.find_element_by_xpath('//*[@id="sid4"]/div/form/div/input').send_keys(url)
@@ -270,10 +270,10 @@ def main(url):
                             driver.find_element_by_xpath('/html/body/div[4]/div[5]/div/div/div[1]/div/form/button').click()
                             View_Continue2 = True
                         except:
-
                             View_Continue2 = False
                             View_Text = driver.find_element_by_xpath("/html/body/div[4]/div[5]/div/div/h4").text
                             print(f"{Fore.RED}View Cool Down Isn't Finished Yet. Getting Cool Down And Skipping...\n {Fore.WHITE}")
+                            time.sleep(3)
 
                             if View_Text[13] == " ":
                                 View_Minutes = int(View_Text[12])
@@ -292,6 +292,7 @@ def main(url):
                             views_cooldown += View_Seconds
 
                             print(f"{Fore.LIGHTGREEN_EX}View Cool Down Is {Fore.CYAN}{View_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{View_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
+                            driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
                         if View_Continue2 == True:
                             print(f"{Fore.LIGHTGREEN_EX}\nSent Views!\n{Fore.WHITE}")
@@ -324,8 +325,6 @@ def main(url):
 
                             print(f"{Fore.LIGHTGREEN_EX}View Cool Down Is {Fore.CYAN}{View_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{View_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
 
-                            driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
-
                         else:
                             pass
 
@@ -338,6 +337,7 @@ def main(url):
 
                 try:
                     #Shares
+                    driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
                     try:
                         driver.find_element_by_xpath('//*[@id="main"]/div/div[5]/div/button').click()
                         driver.find_element_by_xpath('//*[@id="sid7"]/div/form/div/input').send_keys(url)
@@ -358,6 +358,7 @@ def main(url):
                             Share_Continue2 = False
                             print(f"{Fore.RED}Share Cool Down Isn't Finished Yet. Getting Cool Down And Skipping...\n {Fore.WHITE}")
                             Share_Text = driver.find_element_by_xpath('/html/body/div[4]/div[6]/div/div/h4').text
+                            time.sleep(3)
 
                             if Share_Text[13] == " ":
                                 Share_Minutes = int(Share_Text[12])
@@ -376,6 +377,7 @@ def main(url):
                             shares_cooldown += Share_Seconds
 
                             print(f"{Fore.LIGHTGREEN_EX}Share Cool Down Is {Fore.CYAN}{Share_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Share_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
+                            driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
                         if Share_Continue2 == True:
                             print(f"{Fore.LIGHTGREEN_EX}\nSent Shares!\n{Fore.WHITE}")
@@ -406,8 +408,6 @@ def main(url):
 
                             print(f"{Fore.LIGHTGREEN_EX}Share Cool Down Is {Fore.CYAN}{Share_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Share_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
 
-                            driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
-
                 except Exception as Shares_Error:
                     print(f"{Fore.RED}Error Occurred When Attempting To Send Shares.\nError: {Shares_Error}{Fore.WHITE}\n")
                     driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
@@ -424,8 +424,9 @@ def main(url):
                             break
                 else:
                     print(f"{Fore.LIGHTRED_EX}Couldn't Fix The Problem. Maybe It's Your Internet?\nError: {AllError}\n\nExitted Program.{Fore.WHITE}\n")
+                    exit()
 
-            
+            driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
             amount += 1
             print(f"{Fore.GREEN}\nSent Followers, Hearts, Views, & Shares {amount} Times.{Fore.WHITE}")
             print(f"\n{Fore.LIGHTGREEN_EX}Current Cool Downs\n\nFollow: {Follow_Seconds} Minutes and {follows_cooldown%60} Seconds. ({follows_cooldown} Seconds)\nHearts: {Heart_Minutes} Minutes and {hearts_cooldown%60} Seconds. ({hearts_cooldown} Seconds)\nViews: {View_Minutes} Minutes and {views_cooldown%60} Seconds. ({views_cooldown} Seconds)\nShares: {Share_Minutes} Minutes And {shares_cooldown%60} Seconds. ({shares_cooldown} Seconds)\nHere's Some Water While Waiting For The Cool Down :) 🌊 🧊 🥤{Fore.WHITE}\n")
@@ -474,6 +475,7 @@ def main(url):
 
 
 colorama.init()
+#To make color working for a .py
 
 print(f"""
 {Fore.LIGHTGREEN_EX}████████╗██╗██╗  ██╗{Fore.GREEN}████████╗ ██████╗ ██╗  ██╗    {Fore.BLUE}██████╗  ██████╗ ████████╗████████╗███████╗██████╗     
