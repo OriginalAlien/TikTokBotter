@@ -8,7 +8,7 @@ def main(url):
     options = webdriver.ChromeOptions()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
     try:
-        driver = webdriver.Chrome("Replace chromedriver.exe Path Here With Double Slashes: C:\\USERS\\User\\OneDrive\\Desktop\\Chromedriver\\chromedriver.exe", options=options) #Put chromedriver.exe file loction between quotation marks using double back slashes.
+        driver = webdriver.Chrome("Replace chromedriver.exe Path Here With Double Slashes, Example: C:\\USERS\\User\\OneDrive\\Desktop\\Chromedriver\\chromedriver.exe", options=options) #Put chromedriver.exe file loction between quotation marks using double back slashes.
     except Exception as DriverError:
         print(f"{Fore.LIGHTRED_EX}\nInvalid File Location For Chrome Driver Or File Location Hasn't Been Set Yet. Remember To Use Double Slashes.\nLine: 11\nStopped Program.\n")
         print(f"{DriverError}{Fore.WHITE}\n")
@@ -157,6 +157,99 @@ def main(url):
                     driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
 
+                try:
+                    #Views
+                    driver.refresh()
+                    try:
+                        driver.find_element_by_xpath('//*[@id="main"]/div/div[4]/div/button').click()
+                        driver.find_element_by_xpath('//*[@id="sid4"]/div/form/div/input').send_keys(url)
+                        View_Continue1 = True
+                    except:
+                        print(f"{Fore.RED}Views Send Page Is Down.\nSkipping...{Fore.WHITE}\n")
+                        View_Continue1 = False
+                        View_Seconds = 0
+                        View_Minutes = 0
+
+                    if View_Continue1 == True:
+                        driver.find_element_by_xpath('//*[@id="sid4"]/div/form/div/div/button').click()
+                        time.sleep(2)
+
+                        driver.refresh()
+                        time.sleep(0.7)
+                        driver.find_element_by_xpath('//*[@id="main"]/div/div[4]/div/button').click()
+                        driver.find_element_by_xpath('//*[@id="sid4"]/div/form/div/input').send_keys(url)
+                        driver.find_element_by_xpath('//*[@id="sid4"]/div/form/div/div/button').click()
+                        time.sleep(3)
+                        try:
+                            driver.find_element_by_xpath('/html/body/div[4]/div[5]/div/div/div[1]/div/form/button').click()
+                            View_Continue2 = True
+                        except:
+                            View_Continue2 = False
+                            View_Text = driver.find_element_by_xpath("/html/body/div[4]/div[5]/div/div/h4").text
+                            print(f"{Fore.RED}View Cool Down Isn't Finished Yet. Getting Cool Down And Skipping...\n {Fore.WHITE}")
+                            time.sleep(3)
+
+                            if View_Text[13] == " ":
+                                View_Minutes = int(View_Text[12])
+                                View_Seconds = View_Minutes * 60
+
+                            elif View_Text[13] != " ":
+                                View_Minutes = int(View_Text[12:14])
+                                View_Seconds = View_Minutes * 60
+
+                            if View_Text[24] == "0":
+                                View_Seconds += int(View_Text[25])
+                            elif View_Text[24] != "0":
+                                View_Seconds += int(View_Text[24:26])
+
+                            View_Seconds += 5
+                            views_cooldown += View_Seconds
+
+                            print(f"{Fore.LIGHTGREEN_EX}View Cool Down Is {Fore.CYAN}{View_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{View_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
+                            driver.refresh()
+
+                        if View_Continue2 == True:
+                            print(f"{Fore.LIGHTGREEN_EX}\nSent Views!\n{Fore.WHITE}")
+                            print(f"{Fore.YELLOW}Getting Cool Down...{Fore.WHITE}\n")
+                            time.sleep(10)
+
+                            View_Text = driver.find_element_by_xpath("/html/body/div[4]/div[5]/div/div/h4").text
+
+                            try:
+                                if View_Text[13] == " ":
+                                    View_Minutes = int(View_Text[12])
+                                    View_Seconds = View_Minutes * 60
+
+                                elif View_Text[13] != " ":
+                                    View_Minutes = int(View_Text[12:14])
+                                    View_Seconds = View_Minutes * 60
+
+                                if View_Text[24] == "0":
+                                    View_Seconds += int(View_Text[25])
+                                elif View_Text[24] != "0":
+                                    View_Seconds += int(View_Text[24:26])
+
+                                View_Seconds += 5
+                                views_cooldown += View_Seconds
+                                
+                            except:
+                                print(f"{Fore.RED}An Error Occurred When Attempting To Get View's Cool Down. (Skipping){Fore.WHITE}\n")
+                                View_Minutes = 0
+                                View_Seconds = 0
+
+                            print(f"{Fore.LIGHTGREEN_EX}View Cool Down Is {Fore.CYAN}{View_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{View_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
+
+                        else:
+                            pass
+
+                    else:
+                        pass
+                        
+                except Exception as Views_Error:
+                    print(f"{Fore.RED}Error Occurred When Attempting To Send Views.\nError: {Views_Error}{Fore.WHITE}\n")
+                    driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
+
+                
 
                 try:
                     #Hearts
@@ -234,7 +327,7 @@ def main(url):
 
                             print(f"{Fore.LIGHTGREEN_EX}Heart Cool Down Is {Fore.CYAN}{Heart_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Heart_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
 
-                            driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
+                            driver.refresh()
                         else:
                             pass
                     else:
@@ -243,97 +336,7 @@ def main(url):
                 except Exception as Hearts_Error:
                     print(f"{Fore.RED}Error Occurred When Attempting To Send Hearts.\nError: {Hearts_Error}{Fore.WHITE}\n")
 
-                try:
-                    #Views
-                    driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
-                    try:
-                        driver.find_element_by_xpath('//*[@id="main"]/div/div[4]/div/button').click()
-                        driver.find_element_by_xpath('//*[@id="sid4"]/div/form/div/input').send_keys(url)
-                        View_Continue1 = True
-                    except:
-                        print(f"{Fore.RED}Views Send Page Is Down.\nSkipping...{Fore.WHITE}\n")
-                        View_Continue1 = False
-                        View_Seconds = 0
-                        View_Minutes = 0
 
-                    if View_Continue1 == True:
-                        driver.find_element_by_xpath('//*[@id="sid4"]/div/form/div/div/button').click()
-                        time.sleep(2)
-
-                        driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
-                        time.sleep(0.7)
-                        driver.find_element_by_xpath('//*[@id="main"]/div/div[4]/div/button').click()
-                        driver.find_element_by_xpath('//*[@id="sid4"]/div/form/div/input').send_keys(url)
-                        driver.find_element_by_xpath('//*[@id="sid4"]/div/form/div/div/button').click()
-                        time.sleep(3)
-                        try:
-                            driver.find_element_by_xpath('/html/body/div[4]/div[5]/div/div/div[1]/div/form/button').click()
-                            View_Continue2 = True
-                        except:
-                            View_Continue2 = False
-                            View_Text = driver.find_element_by_xpath("/html/body/div[4]/div[5]/div/div/h4").text
-                            print(f"{Fore.RED}View Cool Down Isn't Finished Yet. Getting Cool Down And Skipping...\n {Fore.WHITE}")
-                            time.sleep(3)
-
-                            if View_Text[13] == " ":
-                                View_Minutes = int(View_Text[12])
-                                View_Seconds = View_Minutes * 60
-
-                            elif View_Text[13] != " ":
-                                View_Minutes = int(View_Text[12:14])
-                                View_Seconds = View_Minutes * 60
-
-                            if View_Text[24] == "0":
-                                View_Seconds += int(View_Text[25])
-                            elif View_Text[24] != "0":
-                                View_Seconds += int(View_Text[24:26])
-
-                            View_Seconds += 5
-                            views_cooldown += View_Seconds
-
-                            print(f"{Fore.LIGHTGREEN_EX}View Cool Down Is {Fore.CYAN}{View_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{View_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
-                            driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
-
-                        if View_Continue2 == True:
-                            print(f"{Fore.LIGHTGREEN_EX}\nSent Views!\n{Fore.WHITE}")
-                            print(f"{Fore.YELLOW}Getting Cool Down...{Fore.WHITE}\n")
-                            time.sleep(10)
-
-                            View_Text = driver.find_element_by_xpath("/html/body/div[4]/div[5]/div/div/h4").text
-
-                            try:
-                                if View_Text[13] == " ":
-                                    View_Minutes = int(View_Text[12])
-                                    View_Seconds = View_Minutes * 60
-
-                                elif View_Text[13] != " ":
-                                    View_Minutes = int(View_Text[12:14])
-                                    View_Seconds = View_Minutes * 60
-
-                                if View_Text[24] == "0":
-                                    View_Seconds += int(View_Text[25])
-                                elif View_Text[24] != "0":
-                                    View_Seconds += int(View_Text[24:26])
-
-                                View_Seconds += 5
-                                views_cooldown += View_Seconds
-                                
-                            except:
-                                print(f"{Fore.RED}An Error Occurred When Attempting To Get View's Cool Down. (Skipping){Fore.WHITE}\n")
-                                View_Minutes = 0
-                                View_Seconds = 0
-
-                            print(f"{Fore.LIGHTGREEN_EX}View Cool Down Is {Fore.CYAN}{View_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{View_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
-
-                        else:
-                            pass
-
-                    else:
-                        pass
-                        
-                except Exception as Views_Error:
-                    print(f"{Fore.RED}Error Occurred When Attempting To Send Views.\nError: {Views_Error}{Fore.WHITE}\n")
-                    driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
                 try:
                     #Shares
@@ -436,6 +439,8 @@ def main(url):
             AntiAFKTime = int(LargestCoolDown[-1]) + 60
             AntiAFKTime /= 5
 
+            print(f"{Fore.LIGHTCYAN_EX}Each Seconds Before Refresh 5 Times: {AntiAFKTime}{Fore.WHITE}")
+
             time.sleep(AntiAFKTime)
             driver.refresh()
             print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring. {Fore.LIGHTBLUE_EX}(1/5 Cool Down){Fore.WHITE}\n")
@@ -505,3 +510,4 @@ while "tiktok" not in video_url:
         break
 
 main(video_url)
+#Update: Fixed the cooldown with views
