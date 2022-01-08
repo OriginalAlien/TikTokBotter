@@ -1,7 +1,7 @@
 # TikTokBotter (UPDATED)
 Educational Purposes Only. Contact Dreamer#5114 for assistance.
 
-Uses Zefoy To Bot Your TikToks!
+Uses Zefoy To Bot Your TikToks (Follows, Views, Hearts, & Shares)!
 Automatically Starts Again After Cool Down, You Can Have It Running In The Back Ground
 
 1. Download Python And Web Chrome Driver
