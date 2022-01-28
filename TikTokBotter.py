@@ -1,49 +1,91 @@
-import time
+import time, sys, os, colorama
 from colorama import Fore
 from colorama import init
-import colorama
 from selenium import webdriver
+#gig
+
+os.system("title TikTok Botter -By Dreamer#5114")
 init()
+
+
+def type(str, wait):
+  for letter in str:
+    sys.stdout.write(letter)
+    sys.stdout.flush()
+    time.sleep(wait)
+  print()
+
+
+def info():
+    print(f"""{Fore.WHITE}
+     ╔═══════════════════════════════════════════════════════════════════════════════════╗
+     ║                                                                                   ║
+     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}About: {Fore.LIGHTMAGENTA_EX}This Is A Advanced Tool That Uses Zefoy{Fore.WHITE}                       ║\n     ║                     {Fore.LIGHTMAGENTA_EX}To Bot TikTok Follows, Hearts, Views, & Shares.{Fore.WHITE}               ║
+     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Updates: {Fore.LIGHTMAGENTA_EX}Changed Designs --1/27/2022{Fore.WHITE}                                 ║
+     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Made By: {Fore.LIGHTMAGENTA_EX}Dreamer#5114{Fore.WHITE}                                                ║
+     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Github: {Fore.LIGHTMAGENTA_EX}https://github.com/OriginalAlien{Fore.WHITE}                             ║
+     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Download Chrome Driver: {Fore.LIGHTMAGENTA_EX}https://chromedriver.chromium.org/downloads{Fore.WHITE}  ║
+     ║                                                                                   ║
+     ╚═══════════════════════════════════════════════════════════════════════════════════╝
+    """)
+
+
+def start():
+    video_url = input(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>>>{Fore.WHITE}] {Fore.GREEN}Video URL: {Fore.LIGHTMAGENTA_EX}")
+
+    while "tiktok" not in video_url:
+        type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Please Enter A Valid Link.", 0.01)
+        video_url = input(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>>>{Fore.WHITE}] {Fore.GREEN}Video URL: {Fore.LIGHTMAGENTA_EX}")
+        if "tiktok" in video_url:
+            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Opening Chrome Web Driver...\n", 0.01)
+            break
+
+    main(video_url)
+
+
 def main(url):
-    options = webdriver.ChromeOptions()
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    option = webdriver.ChromeOptions()
+    option.add_experimental_option('excludeSwitches', ['enable-logging'])
     try:
-        driver = webdriver.Chrome("Replace chromedriver.exe Path Here With Double Slashes, Example: C:\\USERS\\User\\OneDrive\\Desktop\\Chromedriver\\chromedriver.exe", options=options) #Put chromedriver.exe file loction between quotation marks using double back slashes.
+        driver = webdriver.Chrome("Chrome Driver's Location Here, Use Double Slashes. Example: C:\\USERS\\User\\OneDrive\\Desktop\\Chromedriver\\chromedriver.exe", options=option) #Put chromedriver.exe file loction between quotation marks using double back slashes.
     except Exception as DriverError:
-        print(f"{Fore.LIGHTRED_EX}\nInvalid File Location For Chrome Driver Or File Location Hasn't Been Set Yet. Remember To Use Double Slashes.\nLine: 11\nStopped Program.\n")
-        print(f"{DriverError}{Fore.WHITE}\n")
+        type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Invalid File Location For Chrome Driver Or File Location Hasn't Been Set Yet. Remember To Use Double Slashes.\nLine: 11\nStopped Program.\n", 0.01)
+        print(f"{DriverError}{Fore.RESET}\n")
         exit()
     driver.set_window_size(777, 777)
     driver.get('https://zefoy.com')
     amount = 0
 
     if driver.title == "zefoy.com | 502: Bad gateway":
-                print(f"{Fore.LIGHTRED_EX}\nZefoy Is Down... Attempting To Fix.\n")
+                type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Zefoy Is Down... Attempting To Fix.\n")
                 while driver.title == "zefoy.com | 502: Bad gateway":
                     time.sleep(20)
                     driver.refresh()
                     if driver.title != "zefoy.com | 502: Bad gateway":
-                        print(f"{Fore.LIGHTGREEN_EX}\nFixed! Zefoy is Back Up. Starting Now.\n")
+                        type(f"{Fore.LIGHTGREEN_EX}\nFixed! Zefoy is Back Up. Starting Now.\n", 0.01)
                         break
     else:
         pass
-        print(f"{Fore.LIGHTGREEN_EX}\nZefoy Is Up!{Fore.WHITE}")
+        type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Zefoy Is Up!{Fore.WHITE}\n", 0.01)
 
-    captcha_finish = input(f"{Fore.YELLOW}\nPlease Solve The Captcha To Continue.\nType \"y\" Once You Finished The Captcha.\n{Fore.WHITE}> ")
+
+    type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Type \"y\" Once You Finished Captcha.", 0.01)
+    captcha_finish = input(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>>>{Fore.WHITE}] {Fore.GREEN} {Fore.LIGHTMAGENTA_EX}")
     if captcha_finish == "y":
         while captcha_finish != True:
             try:
                 driver.find_element_by_xpath("/html/body/div[4]/div[1]/div[3]/div/div[1]/div/h5")
                 captcha_finish = True
             except:
-                print(f"{Fore.RED}\nYou Didn't Finish The Captcha.\n{Fore.WHITE}")
+                type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}You Didn't Finish The Captcha.", 0.01)
                 captcha_finish = False
-                captcha_finish = input(f"{Fore.YELLOW}\nPlease Solve The Captcha To Continue.\nType \"y\" Once You Finished The Captcha.\n\n{Fore.WHITE}> ")
+                type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Type \"y\" Once You Finished Captcha.", 0.01)
+                captcha_finish = input(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>>>{Fore.WHITE}] {Fore.GREEN} {Fore.LIGHTMAGENTA_EX}")
                 if captcha_finish == True:
                     break
     
     while captcha_finish == True:
-        print(f"{Fore.LIGHTGREEN_EX}\nCaptcha Is Solved, Starting Now!{Fore.WHITE}\n")
+        type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Captcha Is Solved, Starting Now!", 0.01)
 
         follows_cooldown = 0
         hearts_cooldown = 0
@@ -60,15 +102,15 @@ def main(url):
 
         while captcha_finish == True:
             if driver.title == "zefoy.com | 502: Bad gateway":
-                print(f"{Fore.LIGHTRED_EX}\nZefoy Is Down... Attempting To Fix.\n")
+                type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}]{Fore.LIGHTRED_EX}\nZefoy Is Down... Attempting To Fix.\n", 0.01)
                 while driver.title == "zefoy.com | 502: Bad gateway":
                     time.sleep(20)
                     driver.refresh()
                     if driver.title != "zefoy.com | 502: Bad gateway":
-                        print(f"{Fore.LIGHTGREEN_EX}\nFixed! Zefoy is Back Up. Starting Now.\n")
+                        type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX} Fixed! Zefoy is Back Up. Starting Now.\n", 0.01)
                         break
             else:
-                print(f"{Fore.LIGHTGREEN_EX}Zefoy Is Up!.{Fore.WHITE}\n")
+                type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Zefoy Is Up.{Fore.WHITE}\n", 0.01)
                 pass
             
             try:
@@ -82,7 +124,7 @@ def main(url):
                         driver.find_element_by_xpath('//*[@id="sid"]/div/form/div/input').send_keys(url)
                         Follow_Continue1 = True
                     except:
-                        print(f"{Fore.RED}Follower Send Page Is Down.\nSkipping...{Fore.WHITE}\n")
+                        type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Follower Send Page Is Down.\n{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Skipping...{Fore.WHITE}\n", 0.01)
                         Follow_Continue1 = False
                         Follow_Seconds = 0
                         Follow_Minutes = 0
@@ -94,7 +136,7 @@ def main(url):
                             driver.find_element_by_xpath('//*[@id="c2VuZF9mb2xsb3dlcnNfdGlrdG9r"]/div[1]/div/form/button').click()
                             Follow_Continue2 = True
                         except:
-                            print(f"{Fore.RED}Follow Cool Down Isn't Finished Yet. Getting Cool Down And Skipping...\n {Fore.WHITE}")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Follow Cool Down Isn't Finished Yet. Getting Cool Down And Skipping...\n {Fore.WHITE}", 0.01)
                             Follow_Continue2 = False
                             Follow_Text = driver.find_element_by_xpath("/html/body/div[4]/div[2]/div/div/h4").text
                             time.sleep(3)
@@ -115,11 +157,11 @@ def main(url):
                             Follow_Seconds += 5
                             follows_cooldown += Follow_Seconds
 
-                            print(f"{Fore.LIGHTGREEN_EX}Follow Cool Down Is {Fore.CYAN}{Follow_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Follow_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Follow Cool Down Is {Fore.LIGHTCYAN_EX}{Follow_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.LIGHTCYAN_EX}{Follow_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.\n", 0.01)
 
                         if Follow_Continue2 == True:
-                            print(f"{Fore.LIGHTGREEN_EX}\nSent Followers!\n{Fore.WHITE}\n")
-                            print(f"{Fore.YELLOW}Getting Cool Down...{Fore.WHITE}\n")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}\nSent Followers!\n{Fore.WHITE}\n", 0.01)
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Getting Cool Down...{Fore.WHITE}\n", 0.01)
                             time.sleep(10)
                             Follow_Text = driver.find_element_by_xpath('/html/body/div[4]/div[2]/div/div/h4').text
 
@@ -140,12 +182,12 @@ def main(url):
                                 Follow_Seconds += 5
                                 follows_cooldown += Follow_Seconds
                             except:
-                                print(f"{Fore.RED}An Error Occurred When Attempting To Get Follow's Cool Down. (Skipping){Fore.WHITE}\n")
+                                type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}An Error Occurred When Attempting To Get Follow's Cool Down. (Skipping){Fore.WHITE}\n", 0.01)
                                 Follow_Minutes = 0
                                 Follow_Seconds = 0
 
 
-                            print(f"{Fore.LIGHTGREEN_EX}Follow Cool Down Is {Fore.CYAN}{Follow_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Follow_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Follow Cool Down Is {Fore.LIGHTCYAN_EX}{Follow_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.LIGHTCYAN_EX}{Follow_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n", 0.01)
 
                         else:
                             pass
@@ -153,7 +195,7 @@ def main(url):
                         pass
 
                 except Exception as Follows_Error:
-                    print(f"{Fore.RED}Error Occurred When Attempting To Send Follows.\nError: {Follows_Error}{Fore.WHITE}\n")
+                    type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error Occurred When Attempting To Send Follows.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error: {Follows_Error}{Fore.WHITE}\n", 0.01)
                     driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
 
@@ -165,7 +207,7 @@ def main(url):
                         driver.find_element_by_xpath('//*[@id="sid4"]/div/form/div/input').send_keys(url)
                         View_Continue1 = True
                     except:
-                        print(f"{Fore.RED}Views Send Page Is Down.\nSkipping...{Fore.WHITE}\n")
+                        type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Views Send Page Is Down.\n{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Skipping...{Fore.WHITE}\n", 0.01)
                         View_Continue1 = False
                         View_Seconds = 0
                         View_Minutes = 0
@@ -186,7 +228,7 @@ def main(url):
                         except:
                             View_Continue2 = False
                             View_Text = driver.find_element_by_xpath("/html/body/div[4]/div[5]/div/div/h4").text
-                            print(f"{Fore.RED}View Cool Down Isn't Finished Yet. Getting Cool Down And Skipping...\n {Fore.WHITE}")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}View Cool Down Isn't Finished Yet. Getting Cool Down And Skipping...\n {Fore.WHITE}", 0.01)
                             time.sleep(3)
 
                             if View_Text[13] == " ":
@@ -205,12 +247,12 @@ def main(url):
                             View_Seconds += 5
                             views_cooldown += View_Seconds
 
-                            print(f"{Fore.LIGHTGREEN_EX}View Cool Down Is {Fore.CYAN}{View_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{View_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}View Cool Down Is {Fore.LIGHTCYAN_EX}{View_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.LIGHTCYAN_EX}{View_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n", 0.01)
                             driver.refresh()
 
                         if View_Continue2 == True:
-                            print(f"{Fore.LIGHTGREEN_EX}\nSent Views!\n{Fore.WHITE}")
-                            print(f"{Fore.YELLOW}Getting Cool Down...{Fore.WHITE}\n")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Sent Views!\n{Fore.WHITE}", 0.01)
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Getting Cool Down...{Fore.WHITE}\n", 0.01)
                             time.sleep(10)
 
                             View_Text = driver.find_element_by_xpath("/html/body/div[4]/div[5]/div/div/h4").text
@@ -233,11 +275,11 @@ def main(url):
                                 views_cooldown += View_Seconds
                                 
                             except:
-                                print(f"{Fore.RED}An Error Occurred When Attempting To Get View's Cool Down. (Skipping){Fore.WHITE}\n")
+                                type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}An Error Occurred When Attempting To Get View's Cool Down. (Skipping){Fore.WHITE}\n", 0.01)
                                 View_Minutes = 0
                                 View_Seconds = 0
 
-                            print(f"{Fore.LIGHTGREEN_EX}View Cool Down Is {Fore.CYAN}{View_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{View_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}View Cool Down Is {Fore.LIGHTCYAN_EX}{View_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.LIGHTCYAN_EX}{View_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n", 0.01)
 
                         else:
                             pass
@@ -246,7 +288,7 @@ def main(url):
                         pass
                         
                 except Exception as Views_Error:
-                    print(f"{Fore.RED}Error Occurred When Attempting To Send Views.\nError: {Views_Error}{Fore.WHITE}\n")
+                    type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error Occurred When Attempting To Send Views.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error: {Views_Error}{Fore.WHITE}\n", 0.01)
                     driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
                 
@@ -261,7 +303,7 @@ def main(url):
                         driver.find_element_by_xpath('//*[@id="sid2"]/div/form/div/input').send_keys(url)
                         Heart_Continue1 = True
                     except:
-                        print(f"{Fore.RED}Heart Send Page Is Down.\nSkipping...{Fore.WHITE}\n")
+                        type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Heart Send Page Is Down.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Skipping...{Fore.WHITE}\n", 0.01)
                         Heart_Continue1 = False
                         Heart_Seconds = 0
                         Heart_Minutes = 0
@@ -274,7 +316,7 @@ def main(url):
                             Heart_Continue2 = True
 
                         except:
-                            print(f"{Fore.RED}Heart Cool Down Isn't Finished Yet. Getting Cool Down And Skipping...\n {Fore.WHITE}")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Heart Cool Down Isn't Finished Yet. Getting Cool Down And Skipping...\n {Fore.WHITE}", 0.01)
                             Heart_Continue2 = False
                             Heart_Text = driver.find_element_by_xpath("/html/body/div[4]/div[3]/div/div/h4").text
                             time.sleep(3)
@@ -295,11 +337,11 @@ def main(url):
                             Heart_Seconds += 7
                             hearts_cooldown += Heart_Seconds
 
-                            print(f"{Fore.LIGHTGREEN_EX}Heart Cool Down Is {Fore.CYAN}{Heart_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Heart_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Heart Cool Down Is {Fore.LIGHTCYAN_EX}{Heart_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.LIGHTCYAN_EX}{Heart_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n", 0.01)
 
                         if Heart_Continue2 == True:
-                            print(f"{Fore.LIGHTGREEN_EX}\nSent Hearts!\n{Fore.WHITE}\n")
-                            print(f"{Fore.YELLOW}Getting Cool Down...{Fore.WHITE}\n")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Sent Hearts!\n{Fore.WHITE}\n", 0.01)
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Getting Cool Down...{Fore.WHITE}\n", 0.01)
                             time.sleep(10)
 
                             Heart_Text = driver.find_element_by_xpath("/html/body/div[4]/div[3]/div/div/h4").text #Finding the cooldown for the heart's xpath is for some reason inaccurate.
@@ -321,11 +363,11 @@ def main(url):
                                 Heart_Seconds += 5
                                 hearts_cooldown += Heart_Seconds
                             except:
-                                print(f"{Fore.RED}An Error Occurred When Attempting To Get Heart's Cool Down. (Skipping){Fore.WHITE}\n")
+                                type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}An Error Occurred When Attempting To Get Heart's Cool Down. (Skipping){Fore.WHITE}\n", 0.01)
                                 Heart_Minutes = 0
                                 Heart_Seconds = 0
 
-                            print(f"{Fore.LIGHTGREEN_EX}Heart Cool Down Is {Fore.CYAN}{Heart_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Heart_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Heart Cool Down Is {Fore.LIGHTCYAN_EX}{Heart_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.LIGHTCYAN_EX}{Heart_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n", 0.01)
 
                             driver.refresh()
                         else:
@@ -334,8 +376,7 @@ def main(url):
                         pass
                     
                 except Exception as Hearts_Error:
-                    print(f"{Fore.RED}Error Occurred When Attempting To Send Hearts.\nError: {Hearts_Error}{Fore.WHITE}\n")
-
+                    type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error Occurred When Attempting To Send Hearts.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error: {Hearts_Error}{Fore.WHITE}\n", 0.01)
 
 
                 try:
@@ -347,7 +388,7 @@ def main(url):
                         Share_Continue1 = True
                     except:
                         Share_Continue1 = False
-                        print(f"{Fore.RED}Share Send Page Is Down.\nSkipping...\n{Fore.WHITE}")
+                        type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.RED}Share Send Page Is Down.\n{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Skipping...\n{Fore.WHITE}", 0.01)
                         Share_Minutes = 0
                         Share_Seconds = 0
 
@@ -359,7 +400,7 @@ def main(url):
                             Share_Continue2 = True
                         except:
                             Share_Continue2 = False
-                            print(f"{Fore.RED}Share Cool Down Isn't Finished Yet. Getting Cool Down And Skipping...\n {Fore.WHITE}")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Share Cool Down Isn't Finished Yet. Getting Cool Down And Skipping...\n {Fore.WHITE}", 0.01)
                             Share_Text = driver.find_element_by_xpath('/html/body/div[4]/div[6]/div/div/h4').text
                             time.sleep(3)
 
@@ -379,12 +420,12 @@ def main(url):
                             Share_Seconds += 5
                             shares_cooldown += Share_Seconds
 
-                            print(f"{Fore.LIGHTGREEN_EX}Share Cool Down Is {Fore.CYAN}{Share_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Share_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Share Cool Down Is {Fore.LIGHTCYAN_EX}{Share_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.LIGHTCYAN_EX}{Share_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n", 0.01)
                             driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
                         if Share_Continue2 == True:
-                            print(f"{Fore.LIGHTGREEN_EX}\nSent Shares!\n{Fore.WHITE}")
-                            print(f"{Fore.YELLOW}Getting Cool Down...{Fore.WHITE}\n")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Sent Shares!\n{Fore.WHITE}", 0.01)
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Getting Cool Down...{Fore.WHITE}\n", 0.01)
                             time.sleep(10)
                             Share_Text = driver.find_element_by_xpath('/html/body/div[4]/div[6]/div/div/h4').text
 
@@ -405,62 +446,78 @@ def main(url):
                                 Share_Seconds += 5
                                 shares_cooldown += Share_Seconds
                             except:
-                                print(f"{Fore.RED}An Error Occurred When Attempting To Get Share's Cool Down. (Skipping){Fore.WHITE}\n")
+                                type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}An Error Occurred When Attempting To Get Share's Cool Down. (Skipping){Fore.WHITE}\n", 0.01)
                                 Share_Minutes = 0
                                 Share_Seconds = 0
 
-                            print(f"{Fore.LIGHTGREEN_EX}Share Cool Down Is {Fore.CYAN}{Share_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.CYAN}{Share_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Share Cool Down Is {Fore.LIGHTCYAN_EX}{Share_Minutes}{Fore.LIGHTGREEN_EX} Minutes And {Fore.LIGHTCYAN_EX}{Share_Seconds%60}{Fore.LIGHTGREEN_EX} Seconds.{Fore.WHITE}\n", 0.01)
 
                 except Exception as Shares_Error:
-                    print(f"{Fore.RED}Error Occurred When Attempting To Send Shares.\nError: {Shares_Error}{Fore.WHITE}\n")
+                    type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error Occurred When Attempting To Send Shares.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error: {Shares_Error}{Fore.WHITE}\n", 0.01)
                     driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
             except Exception as AllError:
-                print(f"{Fore.LIGHTRED_EX}An Error Occured When Trying To Send Followers, Hearts, Views, & Shares.\nMost Likely Zefoy Is Down, Attempting To Troubleshoot.\n")
+                type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}An Error Occured When Trying To Send Followers, Hearts, Views, & Shares.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Most Likely Zefoy Is Down, Attempting To Troubleshoot.\n", 0.01)
                 if driver.title == "zefoy.com | 502: Bad gateway":
-                    print(f"{Fore.LIGHTRED_EX}\nZefoy Is Down... Attempting To Fix.\n")
+                    type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Zefoy Is Down... Attempting To Fix.\n", 0.01)
                     while driver.title == "zefoy.com | 502: Bad gateway":
                         time.sleep(20)
                         driver.refresh()
                         if driver.title != "zefoy.com | 502: Bad gateway":
-                            print(f"{Fore.LIGHTGREEN_EX}\nFixed! Zefoy is Back Up.\n")
+                            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Fixed! Zefoy is Back Up.\n", 0.01)
                             break
                 else:
-                    print(f"{Fore.LIGHTRED_EX}Couldn't Fix The Problem. Maybe It's Your Internet?\nError: {AllError}\n\nExitted Program.{Fore.WHITE}\n")
+                    type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Couldn't Fix The Problem. Maybe It's Your Internet?\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error: {AllError}\n\nExitted Program.{Fore.WHITE}\n", 0.01)
                     exit()
 
             driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
             amount += 1
-            print(f"{Fore.GREEN}\nSent Followers, Hearts, Views, & Shares {amount} Times.{Fore.WHITE}")
-            print(f"\n{Fore.LIGHTGREEN_EX}Current Cool Downs\n\nFollow: {Follow_Seconds} Minutes and {follows_cooldown%60} Seconds. ({follows_cooldown} Seconds)\nHearts: {Heart_Minutes} Minutes and {hearts_cooldown%60} Seconds. ({hearts_cooldown} Seconds)\nViews: {View_Minutes} Minutes and {views_cooldown%60} Seconds. ({views_cooldown} Seconds)\nShares: {Share_Minutes} Minutes And {shares_cooldown%60} Seconds. ({shares_cooldown} Seconds)\nHere's Some Water While Waiting For The Cool Down :) 🌊 🧊 🥤{Fore.WHITE}\n")
+            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.GREEN}Sent Followers, Hearts, Views, & Shares {amount} Times.{Fore.WHITE}", 0.01)
 
             LargestCoolDown = [follows_cooldown, hearts_cooldown, views_cooldown, shares_cooldown]
             LargestCoolDown.sort()
             AntiAFKTime = int(LargestCoolDown[-1]) + 60
             AntiAFKTime /= 5
 
-            print(f"{Fore.LIGHTCYAN_EX}Each Seconds Before Refresh 5 Times: {AntiAFKTime}{Fore.WHITE}")
+            Follow_Spaces = 85 - (len(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Follow: {Fore.LIGHTCYAN_EX}{Follow_Minutes}m, {follows_cooldown%60}s ({follows_cooldown}s){Fore.WHITE}') - 18)
+            Heart_Spaces = 85 - (len(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Hearts: {Fore.LIGHTCYAN_EX}{Heart_Minutes}m, {hearts_cooldown%60}s ({hearts_cooldown}s){Fore.WHITE}') - 18)
+            View_Spaces = 85 - (len(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Views: {Fore.LIGHTCYAN_EX}{View_Minutes}m, {views_cooldown%60}s ({views_cooldown}s){Fore.WHITE}') - 18)
+            Share_Spaces = 85 - (len(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Shares: {Fore.LIGHTCYAN_EX}{Share_Minutes}m, {shares_cooldown%60}s ({shares_cooldown}s){Fore.WHITE}') - 18)
+            AntiAFK_Spaces = 85 - (len(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Seconds Before Refreshing 5x: {Fore.LIGHTCYAN_EX}{AntiAFKTime}{Fore.WHITE}') - 18)
+
+            print(f"""
+╔═══════════════════════════════════════════════════════════════════════════════════╗
+║                               {Fore.LIGHTGREEN_EX}Cool {Fore.LIGHTMAGENTA_EX}Downs{Fore.WHITE}                                          ║
+║                                                                                   ║
+║                                                                                   ║
+║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Follow: {Fore.LIGHTCYAN_EX}{Follow_Minutes}m, {follows_cooldown%60}s ({follows_cooldown}s){Fore.WHITE}{Follow_Spaces*' '}║
+║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Hearts: {Fore.LIGHTCYAN_EX}{Heart_Minutes}m, {hearts_cooldown%60}s ({hearts_cooldown}s){Fore.WHITE}{Heart_Spaces*' '}║
+║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Views: {Fore.LIGHTCYAN_EX}{View_Minutes}m, {views_cooldown%60}s ({views_cooldown}s){Fore.WHITE}{View_Spaces*' '}║
+║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Shares: {Fore.LIGHTCYAN_EX}{Share_Minutes}m, {shares_cooldown%60}s ({shares_cooldown}s){Fore.WHITE}{Share_Spaces*' '}║
+║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Seconds Before Refreshing 5x: {Fore.LIGHTCYAN_EX}{AntiAFKTime}{Fore.WHITE}{AntiAFK_Spaces*' '}║
+║                                                                                   ║
+╚═══════════════════════════════════════════════════════════════════════════════════╝
+""")
+            time.sleep(AntiAFKTime)
+            driver.refresh()
+            type(f"\n{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring. {Fore.LIGHTCYAN_EX}(1/5 Cool Down){Fore.WHITE}\n", 0.01)
+            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}!! Reminder !!\n{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] Please Do Not Interact With The Tabs In Chrome Web Driver As It Can Mess Up The Code And Give Errors\n", 0.01)
 
             time.sleep(AntiAFKTime)
             driver.refresh()
-            print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring. {Fore.LIGHTBLUE_EX}(1/5 Cool Down){Fore.WHITE}\n")
-            print(f"{Fore.RED}!! Reminder !!\nPlease Do Not Interact With The Tabs In Chrome Web Driver As It Can Mess Up The Code And Give Errors\n")
+            type(f"\n{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring. {Fore.LIGHTCYAN_EX}(2/5 Cool Down){Fore.WHITE}\n", 0.01)
 
             time.sleep(AntiAFKTime)
             driver.refresh()
-            print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring. {Fore.LIGHTBLUE_EX}(2/5 Cool Down){Fore.WHITE}\n")
+            type(f"\n{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring {Fore.LIGHTCYAN_EX}(3/5 Cool Down){Fore.WHITE}\n", 0.01)
 
             time.sleep(AntiAFKTime)
             driver.refresh()
-            print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring {Fore.LIGHTBLUE_EX}(3/5 Cool Down){Fore.WHITE}\n")
+            type(f"\n{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring {Fore.LIGHTCYAN_EX}(4/5 Cool Down){Fore.WHITE}\n", 0.01)
 
             time.sleep(AntiAFKTime)
             driver.refresh()
-            print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring {Fore.LIGHTBLUE_EX}(4/5 Cool Down){Fore.WHITE}\n")
-
-            time.sleep(AntiAFKTime)
-            driver.refresh()
-            print(f"\n{Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring. {Fore.LIGHTBLUE_EX}(5/5 Cool Down){Fore.WHITE}\n")
+            type(f"\n{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring. {Fore.LIGHTCYAN_EX}(5/5 Cool Down){Fore.WHITE}\n", 0.01)
 
             follows_cooldown = 0
             hearts_cooldown = 0
@@ -475,39 +532,46 @@ def main(url):
 
             View_Minutes = 0
             View_Seconds = 0
-            print(f"\n{Fore.LIGHTGREEN_EX}Restarting Now...\n")
+            type(f"\n{Fore.LIGHTGREEN_EX}Restarting Now...\n", 0.01)
             time.sleep(34)
-
 
 colorama.init()
 #To make color working for a .py
 
-print(f"""
-{Fore.LIGHTGREEN_EX}████████╗██╗██╗  ██╗{Fore.GREEN}████████╗ ██████╗ ██╗  ██╗    {Fore.BLUE}██████╗  ██████╗ ████████╗████████╗███████╗██████╗     
-{Fore.LIGHTGREEN_EX}╚══██╔══╝██║██║ ██╔╝{Fore.GREEN}╚══██╔══╝██╔═══██╗██║ ██╔╝    {Fore.BLUE}██╔══██╗██╔═══██╗╚══██╔══╝╚══██╔══╝██╔════╝██╔══██╗    
-{Fore.LIGHTGREEN_EX}   ██║   ██║█████╔╝ {Fore.GREEN}   ██║   ██║   ██║█████╔╝     {Fore.BLUE}██████╔╝██║   ██║   ██║      ██║   █████╗  ██████╔     
-{Fore.GREEN}   ██║   ██║██╔═██╗  {Fore.LIGHTGREEN_EX}  ██║   ██║   ██║██╔═██╗     {Fore.LIGHTCYAN_EX}██╔══██╗██║   ██║   ██║      ██║   ██╔══╝  ██╔══██╗   
-{Fore.GREEN}   ██║   ██║██║  ██╗ {Fore.LIGHTGREEN_EX}  ██║   ╚██████╔╝██║  ██╗    {Fore.LIGHTCYAN_EX}██████╔╝╚██████╔╝   ██║      ██║   ███████╗██║  ██║ 
-{Fore.GREEN}   ╚═╝   ╚═╝╚═╝  ╚═╝{Fore.LIGHTGREEN_EX}   ╚═╝    ╚═════╝ ╚═╝  ╚═╝    {Fore.LIGHTBLUE_EX}╚═════╝  ╚═════╝    ╚═╝      ╚═╝   ╚══════╝╚═╝  ╚═╝ 
-""")
+bigText1 = f"""
+{Fore.LIGHTMAGENTA_EX}                                ▄▄▄▄▄▪  ▄ •▄ ▄▄▄▄▄      ▄ •▄     ▄▄▄▄·       ▄▄▄▄▄▄▄▄▄▄▄▄▄ .▄▄▄  
+                                 ██  ██ █▌▄▌▪•██  ▪     █▌▄▌▪    ▐█ ▀█▪▪     •██  •██  ▀▄.▀·▀▄ █·
+                                 ▐█.▪▐█·▐▀▀▄· ▐█.▪ ▄█▀▄ ▐▀▀▄·    ▐█▀▀█▄ ▄█▀▄  ▐█.▪ ▐█.▪▐▀▀▪▄▐▀▀▄ 
+                                 ▐█▌·▐█▌▐█.█▌ ▐█▌·▐█▌.▐▌▐█.█▌    ██▄▪▐█▐█▌.▐▌ ▐█▌· ▐█▌·▐█▄▄▌▐█•█▌
+                                 ▀▀▀ ▀▀▀·▀  ▀ ▀▀▀  ▀█▄▀▪·▀  ▀    ·▀▀▀▀  ▀█▄▀▪ ▀▀▀  ▀▀▀  ▀▀▀ .▀  ▀
+"""
+bigText2 = bigText1.replace('▪', f'{Fore.GREEN}▪{Fore.LIGHTMAGENTA_EX}')
+bigText3 = bigText2.replace('•', f'{Fore.GREEN}•{Fore.LIGHTMAGENTA_EX}')
+bigText4 = bigText3.replace('·', f'{Fore.GREEN}·{Fore.LIGHTMAGENTA_EX}')
+bigText5 = bigText4.replace('.', f'{Fore.GREEN}.{Fore.LIGHTMAGENTA_EX}')
 
-print(f"{Fore.YELLOW}________________{Fore.RED}!! NOTICE !!{Fore.YELLOW}_________________\n\n1. The Cool Down Finder In This Code Only\n   Supports 1-2 Digits.\n\n2. Educational Purpose Only, Not Responsible\n   If Anything Bad Happens To You.\n\n3. Contact Dreamer#5114 If You Need Assistance\n\n4. There Will Be Lots Of Logs Because Of The\n   Web Driver Logs So Most Text Besides Logs Will Be\n   Hilighted As A Color.\n\n5. Please Do Not Interact With Tabs With The Chrome\n   Web Driver When It's Running Since It Can Cause Errors.\n\n6. The Cool Down May Take Longer As Expected Because\n   Me No Know How To Make An Actual Timer Inside A Loop.\n\n7. Enjoy And Yeah!\n______________________________________________{Fore.WHITE}")
-print(f"{Fore.LIGHTGREEN_EX}\nUPDATES: Advanced Trouble Shooting & Detection, Anti-Session Expire, Checks If Zefoy Is Down, & You Can Now Leave This Overnight Because Of The Advanced Troubleshooting.\n         (But Still Expect Some Bugs.)")
-print(f"{Fore.LIGHTGREEN_EX}\nMade By: Dreamer#5114 (Changed My Discord Tag) :)")
-print(f"{Fore.LIGHTGREEN_EX}\nAlso Credits To https://github.com/darkp3ter/ Since He Inspired Me To Make This.{Fore.WHITE}")
-print(f"{Fore.LIGHTGREEN_EX}\nEnjoy!\n")
-print(f"\n{Fore.LIGHTWHITE_EX}Github: {Fore.WHITE}https://github.com/OriginalAlien")
-print(f"{Fore.LIGHTRED_EX}Download {Fore.LIGHTGREEN_EX}Chrome {Fore.LIGHTYELLOW_EX}Driver: {Fore.LIGHTBLUE_EX}https://chromedriver.chromium.org/downloads")
-print(f"{Fore.BLUE}Download Python: {Fore.YELLOW}https://python.org/download{Fore.WHITE}")
+options = f"""
+     {Fore.WHITE}╔═══════════════════════════════╗
+     ║                               ║
+     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}1{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Start{Fore.WHITE}            ║
+     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}2{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Info{Fore.WHITE}             ║
+     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}3{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Options{Fore.WHITE}          ║
+     ║                               ║
+     ╚═══════════════════════════════╝
+"""
 
-video_url = input(f"\nVideo URL: ")
+print(f"{bigText5}")
+type(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Made By: {Fore.LIGHTMAGENTA_EX}Dreamer#5114\n{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Github: {Fore.LIGHTMAGENTA_EX}https://github.com/OriginalAlien/TikTokBotter\n', wait = 0.001)
+print(options)
 
-while "tiktok" not in video_url:
-    print(f"{Fore.RED}Please Enter A Valid Link.{Fore.WHITE}")
-    video_url = input(f"\nVideo URL: {Fore.WHITE}")
-    if "tiktok" in video_url:
-        print(f"{Fore.LIGHTGREEN_EX}Opening Chrome Web Driver...{Fore.WHITE}")
+while True:
+    choice = input(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>>>{Fore.WHITE}] {Fore.GREEN}Choice: {Fore.LIGHTMAGENTA_EX}")
+    if choice == "1":
+        start()
         break
+    elif choice == "2":
+        info()
+    elif choice == "3":
+        print(options)
 
-main(video_url)
-#Update: Fixed the cooldown with views
+#gig
