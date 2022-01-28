@@ -1,8 +1,7 @@
 # TikTokBotter (UPDATED)
 Educational Purposes Only. Contact Dreamer#5114 for assistance.
 
-Uses Zefoy To Bot Your TikToks (Follows, Views, Hearts, & Shares)!
-Automatically Starts Again After Cool Down, You Can Have It Running In The Back Ground
+Really Advanced Tool That Uses Zefoy To Bot Your TikTok Follow, Hearts, Views, & Shares!
 
 1. Download Python And Web Chrome Driver
 2. Install The Colorama, Selenium, And The Time Module For Python
@@ -12,8 +11,10 @@ Automatically Starts Again After Cool Down, You Can Have It Running In The Back 
 
 
 This Can Now Be Left Over Night. --1/5/2022
+Updated Designs --1/27/2022
+
 Preview:
+![image](https://user-images.githubusercontent.com/80835991/151470963-9894414f-7a9c-426b-9655-8c2eb487345c.png)
+![image](https://user-images.githubusercontent.com/80835991/151471002-d62682bc-f1b9-4c04-ae37-a69a88bbb496.png)
 
-![image](https://user-images.githubusercontent.com/80835991/147433687-184804f6-5a63-4b7e-b951-549ed07e60d9.png)
-
-Notice, There Will Be Bugs With The Colors Not Displaying Properly. If You Want The Colors To Display Properly Then I Recommend Using Visual Studio Code To Execute Your Code.
+Notice: For Some Reason, I Can't Disable Logs From Chrome Driver.
