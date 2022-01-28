@@ -3,15 +3,15 @@ Educational Purposes Only. Contact Dreamer#5114 for assistance.
 
 Really Advanced Tool That Uses Zefoy To Bot Your TikTok Follow, Hearts, Views, & Shares!
 
-1. Download Python And Web Chrome Driver
-2. Install The Colorama, Selenium, And The Time Module For Python
-3. In The Code, Put The FIle Location For The Web Chrome Driver EXE
-4. Run It And Then Type Ur TikTok Video URL And Solve The Captcha And It Will Start
-5. This Is In Beta So Expect Bugs & Errors.
+1. Download Python And Web Chrome Driver.
+2. Install The Modules Required In Python.
+3. In The Code, Put The FIle Location For The Web Chrome Driver EXE.
+4. Run It And Then Type Ur TikTok Video URL And Solve The Captcha And It Will Start.
+5. This Is No Longer In Beta.
 
 
 This Can Now Be Left Over Night. --1/5/2022
-Updated Designs --1/27/2022
+\nUpdated Designs --1/27/2022
 
 Preview:
 ![image](https://user-images.githubusercontent.com/80835991/151470963-9894414f-7a9c-426b-9655-8c2eb487345c.png)
