@@ -1,12 +1,8 @@
 import time, sys, os, colorama
 from colorama import Fore
-from colorama import init
 from selenium import webdriver
 #gig
-
-os.system("title TikTok Botter -By Dreamer#5114")
-init()
-#init() for colors
+#gig
 
 def type(str, wait):
   for letter in str:
@@ -15,20 +11,75 @@ def type(str, wait):
     time.sleep(wait)
   print()
 
+os.system("title TikTok Botter -By Dreamer#5114")
+indentLines = int(round(os.get_terminal_size().lines/2))
+print("\n" * indentLines)
+print(f"""
+{Fore.LIGHTMAGENTA_EX}     
+{" "*round(os.get_terminal_size().columns/2-19)}      _                                 
+{" "*round(os.get_terminal_size().columns/2-19)} ___/__)        /) ,                    
+{" "*round(os.get_terminal_size().columns/2-19)}(, /   ____   _(/   __   _              
+{" "*round(os.get_terminal_size().columns/2-19)}  /   (_)(_(_(_(__(_/ (_(_/_{Fore.LIGHTGREEN_EX} o   o   o{Fore.LIGHTMAGENTA_EX}
+{" "*round(os.get_terminal_size().columns/2-19)} (_____                .-/              
+{" "*round(os.get_terminal_size().columns/2-19)}        )             (_/               \n\n
+""")
+print(f"{' ' * round(os.get_terminal_size().columns/2-21)}\t{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}]{Fore.LIGHTGREEN_EX} TIP: {Fore.LIGHTMAGENTA_EX}Not Loading? Press Enter.")
+print("\n" * indentLines)
 
-def info():
-    print(f"""{Fore.WHITE}
-     ╔═══════════════════════════════════════════════════════════════════════════════════╗
-     ║                                                                                   ║
-     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}About: {Fore.LIGHTMAGENTA_EX}This Is A Advanced Tool That Uses Zefoy{Fore.WHITE}                       ║\n     ║                     {Fore.LIGHTMAGENTA_EX}To Bot TikTok Follows, Hearts, Views, & Shares.{Fore.WHITE}               ║
-     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Updates: {Fore.LIGHTMAGENTA_EX}Changed Designs --1/27/2022{Fore.WHITE}                                 ║
-     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Made By: {Fore.LIGHTMAGENTA_EX}Dreamer#5114{Fore.WHITE}                                                ║
-     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Github: {Fore.LIGHTMAGENTA_EX}https://github.com/OriginalAlien{Fore.WHITE}                             ║
-     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Download Chrome Driver: {Fore.LIGHTMAGENTA_EX}https://chromedriver.chromium.org/downloads{Fore.WHITE}  ║
-     ║                                                                                   ║
-     ╚═══════════════════════════════════════════════════════════════════════════════════╝
-    """)
+def printBigText():
+    bigText1 = f"""
+{Fore.LIGHTMAGENTA_EX}
+{" "*round(os.get_terminal_size().columns/2-32)}▄▄▄▄▄▪  ▄ •▄ ▄▄▄▄▄      ▄ •▄     ▄▄▄▄·       ▄▄▄▄▄▄▄▄▄▄▄▄▄ .▄▄▄  
+{" "*round(os.get_terminal_size().columns/2-32)} ██  ██ █▌▄▌▪•██  ▪     █▌▄▌▪    ▐█ ▀█▪▪     •██  •██  ▀▄.▀·▀▄ █·
+{" "*round(os.get_terminal_size().columns/2-32)} ▐█.▪▐█·▐▀▀▄· ▐█.▪ ▄█▀▄ ▐▀▀▄·    ▐█▀▀█▄ ▄█▀▄  ▐█.▪ ▐█.▪▐▀▀▪▄▐▀▀▄ 
+{" "*round(os.get_terminal_size().columns/2-32)} ▐█▌·▐█▌▐█.█▌ ▐█▌·▐█▌.▐▌▐█.█▌    ██▄▪▐█▐█▌.▐▌ ▐█▌· ▐█▌·▐█▄▄▌▐█•█▌
+{" "*round(os.get_terminal_size().columns/2-32)} ▀▀▀ ▀▀▀·▀  ▀ ▀▀▀  ▀█▄▀▪·▀  ▀    ·▀▀▀▀  ▀█▄▀▪ ▀▀▀  ▀▀▀  ▀▀▀ .▀  ▀
+"""
+    bigText2 = bigText1.replace('▪', f'{Fore.GREEN}▪{Fore.LIGHTMAGENTA_EX}')
+    bigText3 = bigText2.replace('•', f'{Fore.GREEN}•{Fore.LIGHTMAGENTA_EX}')
+    bigText4 = bigText3.replace('·', f'{Fore.GREEN}·{Fore.LIGHTMAGENTA_EX}')
+    bigText5 = bigText4.replace('.', f'{Fore.GREEN}.{Fore.LIGHTMAGENTA_EX}')
+    print(bigText5)
 
+def printOptions():
+    options = f"""
+    {Fore.WHITE}
+{" "*round(os.get_terminal_size().columns/2-16)}╔═══════════════════════════════╗
+{" "*round(os.get_terminal_size().columns/2-16)}║                               ║
+{" "*round(os.get_terminal_size().columns/2-16)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}1{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Start{Fore.WHITE}            ║
+{" "*round(os.get_terminal_size().columns/2-16)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}2{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Info{Fore.WHITE}             ║
+{" "*round(os.get_terminal_size().columns/2-16)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}3{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Options{Fore.WHITE}          ║
+{" "*round(os.get_terminal_size().columns/2-16)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}4{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Clear{Fore.WHITE}            ║
+{" "*round(os.get_terminal_size().columns/2-16)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}5{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Exit{Fore.WHITE}             ║
+{" "*round(os.get_terminal_size().columns/2-16)}║                               ║
+{" "*round(os.get_terminal_size().columns/2-16)}╚═══════════════════════════════╝
+    """
+    print(options)
+
+def printInfo():
+    info = f"""
+{Fore.WHITE}
+{" "*round(os.get_terminal_size().columns/2-42)}╔═══════════════════════════════════════════════════════════════════════════════════╗
+{" "*round(os.get_terminal_size().columns/2-42)}║                                                                                   ║
+{" "*round(os.get_terminal_size().columns/2-42)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}About: {Fore.LIGHTMAGENTA_EX}This Is A Advanced Tool That Uses Zefoy{Fore.WHITE}                       ║
+{" "*round(os.get_terminal_size().columns/2-42)}║                     {Fore.LIGHTMAGENTA_EX}To Bot TikTok Follows, Hearts, Views, & Shares.{Fore.WHITE}               ║
+{" "*round(os.get_terminal_size().columns/2-42)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Updates: {Fore.LIGHTMAGENTA_EX}Minor Adjustments --1/28/2022{Fore.WHITE}                               ║
+{" "*round(os.get_terminal_size().columns/2-42)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Made By: {Fore.LIGHTMAGENTA_EX}Dreamer#5114{Fore.WHITE}                                                ║
+{" "*round(os.get_terminal_size().columns/2-42)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Github: {Fore.LIGHTMAGENTA_EX}https://github.com/OriginalAlien{Fore.WHITE}                             ║
+{" "*round(os.get_terminal_size().columns/2-42)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Download Chrome Driver: {Fore.LIGHTMAGENTA_EX}https://chromedriver.chromium.org/downloads{Fore.WHITE}  ║
+{" "*round(os.get_terminal_size().columns/2-42)}║                                                                                   ║
+{" "*round(os.get_terminal_size().columns/2-42)}╚═══════════════════════════════════════════════════════════════════════════════════╝
+"""
+    print(info)
+
+def clear():
+    os.system("cls")
+
+    printBigText()
+
+    print(f'{" "*round(os.get_terminal_size().columns/2-14)}{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Made By: {Fore.LIGHTMAGENTA_EX}Dreamer#5114 {Fore.WHITE}[{Fore.LIGHTGREEN_EX}<{Fore.WHITE}]\n{" "*round(os.get_terminal_size().columns/2-30)}{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Github: {Fore.LIGHTMAGENTA_EX}https://github.com/OriginalAlien/TikTokBotter {Fore.WHITE}[{Fore.LIGHTGREEN_EX}<{Fore.WHITE}]')
+
+    printOptions()
 
 def start():
     video_url = input(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>>>{Fore.WHITE}] {Fore.GREEN}Video URL: {Fore.LIGHTMAGENTA_EX}")
@@ -49,7 +100,7 @@ def main(url):
     try:
         driver = webdriver.Chrome("Chrome Driver Path Here, Example: C:\\USERS\\User\\OneDrive\\Desktop\\Chromedriver\\chromedriver.exe", options=option) #Put chromedriver.exe file loction between quotation marks using double back slashes.
     except Exception as DriverError:
-        type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Invalid File Location For Chrome Driver Or File Location Hasn't Been Set Yet. Remember To Use Double Slashes.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Line: 50\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Stopped Program.\n", 0.01)
+        type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Invalid File Location For Chrome Driver Or File Location Hasn't Been Set Yet. Remember To Use Double Slashes.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Line: 101\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Stopped Program.\n", 0.01)
         print(f"{DriverError}{Fore.RESET}\n")
         time.sleep(7)
         exit()
@@ -481,29 +532,29 @@ def main(url):
             AntiAFKTime = int(LargestCoolDown[-1]) + 60
             AntiAFKTime /= 5
 
-            Follow_Spaces = 85 - (len(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Follow: {Fore.LIGHTCYAN_EX}{Follow_Minutes}m, {follows_cooldown%60}s ({follows_cooldown}s){Fore.WHITE}') - 18)
-            Heart_Spaces = 85 - (len(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Hearts: {Fore.LIGHTCYAN_EX}{Heart_Minutes}m, {hearts_cooldown%60}s ({hearts_cooldown}s){Fore.WHITE}') - 18)
-            View_Spaces = 85 - (len(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Views: {Fore.LIGHTCYAN_EX}{View_Minutes}m, {views_cooldown%60}s ({views_cooldown}s){Fore.WHITE}') - 18)
-            Share_Spaces = 85 - (len(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Shares: {Fore.LIGHTCYAN_EX}{Share_Minutes}m, {shares_cooldown%60}s ({shares_cooldown}s){Fore.WHITE}') - 18)
-            AntiAFK_Spaces = 85 - (len(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Seconds Before Refreshing 5x: {Fore.LIGHTCYAN_EX}{AntiAFKTime}{Fore.WHITE}') - 18)
+            Follow_Spaces = 85 - (len(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Follow: {Fore.LIGHTCYAN_EX}{Follow_Minutes}m, {follows_cooldown%60}s ({follows_cooldown}s){Fore.WHITE}') - 13)
+            Heart_Spaces = 85 - (len(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Hearts: {Fore.LIGHTCYAN_EX}{Heart_Minutes}m, {hearts_cooldown%60}s ({hearts_cooldown}s){Fore.WHITE}') - 13)
+            View_Spaces = 85 - (len(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Views: {Fore.LIGHTCYAN_EX}{View_Minutes}m, {views_cooldown%60}s ({views_cooldown}s){Fore.WHITE}') - 13)
+            Share_Spaces = 85 - (len(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Shares: {Fore.LIGHTCYAN_EX}{Share_Minutes}m, {shares_cooldown%60}s ({shares_cooldown}s){Fore.WHITE}') - 13)
+            AntiAFK_Spaces = 85 - (len(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Seconds Before Refreshing 5x: {Fore.LIGHTCYAN_EX}{AntiAFKTime}{Fore.WHITE}') - 13)
 
             print(f"""
-     ╔═══════════════════════════════════════════════════════════════════════════════════╗
-     ║                               {Fore.LIGHTGREEN_EX}Cool {Fore.LIGHTMAGENTA_EX}Downs{Fore.WHITE}                                          ║
-     ║                                                                                   ║
-     ║                                                                                   ║
-     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Follow: {Fore.LIGHTCYAN_EX}{Follow_Minutes}m, {follows_cooldown%60}s ({follows_cooldown}s){Fore.WHITE}{Follow_Spaces*' '}║
-     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Hearts: {Fore.LIGHTCYAN_EX}{Heart_Minutes}m, {hearts_cooldown%60}s ({hearts_cooldown}s){Fore.WHITE}{Heart_Spaces*' '}║
-     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Views: {Fore.LIGHTCYAN_EX}{View_Minutes}m, {views_cooldown%60}s ({views_cooldown}s){Fore.WHITE}{View_Spaces*' '}║
-     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Shares: {Fore.LIGHTCYAN_EX}{Share_Minutes}m, {shares_cooldown%60}s ({shares_cooldown}s){Fore.WHITE}{Share_Spaces*' '}║
-     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Seconds Before Refreshing 5x: {Fore.LIGHTCYAN_EX}{AntiAFKTime}{Fore.WHITE}{AntiAFK_Spaces*' '}║
-     ║                                                                                   ║
-     ╚═══════════════════════════════════════════════════════════════════════════════════╝
+{" "*round(os.get_terminal_size().columns/2-42)}╔═════════════════════════════════════════════════════════════════════════╗
+{" "*round(os.get_terminal_size().columns/2-42)}║                               {Fore.LIGHTGREEN_EX}Cool Downs{Fore.WHITE}                                ║
+{" "*round(os.get_terminal_size().columns/2-42)}║                                                                         ║
+{" "*round(os.get_terminal_size().columns/2-42)}║     {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Follow: {Fore.LIGHTCYAN_EX}{Follow_Minutes}m, {follows_cooldown%60}s ({follows_cooldown}s){Fore.WHITE}{Follow_Spaces*' '}║
+{" "*round(os.get_terminal_size().columns/2-42)}║     {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Hearts: {Fore.LIGHTCYAN_EX}{Heart_Minutes}m, {hearts_cooldown%60}s ({hearts_cooldown}s){Fore.WHITE}{Heart_Spaces*' '}║
+{" "*round(os.get_terminal_size().columns/2-42)}║     {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Views: {Fore.LIGHTCYAN_EX}{View_Minutes}m, {views_cooldown%60}s ({views_cooldown}s){Fore.WHITE}{View_Spaces*' '}║
+{" "*round(os.get_terminal_size().columns/2-42)}║     {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Shares: {Fore.LIGHTCYAN_EX}{Share_Minutes}m, {shares_cooldown%60}s ({shares_cooldown}s){Fore.WHITE}{Share_Spaces*' '}║
+{" "*round(os.get_terminal_size().columns/2-42)}║     {Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Seconds Before Refreshing 5x: {Fore.LIGHTCYAN_EX}{AntiAFKTime}{Fore.WHITE}{AntiAFK_Spaces*' '}║
+{" "*round(os.get_terminal_size().columns/2-42)}║                                                                         ║
+{" "*round(os.get_terminal_size().columns/2-42)}╚═════════════════════════════════════════════════════════════════════════╝
 """)
+            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Reminder: {Fore.LIGHTMAGENTA_EX}Please Do Not Interact With The Tabs In Chrome Web Driver As It Can Mess Up The Code And Give Errors", 0.01)
+
             time.sleep(AntiAFKTime)
             driver.refresh()
             type(f"\n{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Refreshed Zefoy To Prevent Session From Expiring. {Fore.LIGHTCYAN_EX}(1/5 Cool Down){Fore.WHITE}\n", 0.01)
-            type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTYELLOW_EX}!! Reminder !!\n{Fore.WHITE}[{Fore.LIGHTYELLOW_EX}>{Fore.WHITE}] {Fore.LIGHTYELLOW_EX}Please Do Not Interact With The Tabs In Chrome Web Driver As It Can Mess Up The Code And Give Errors\n", 0.01)
 
             time.sleep(AntiAFKTime)
             driver.refresh()
@@ -537,33 +588,13 @@ def main(url):
             type(f"\n{Fore.LIGHTGREEN_EX}Restarting Now...\n", 0.01)
             time.sleep(34)
 
-colorama.init() #To make color working for a .py
+colorama.init()
+time.sleep(7)
+os.system('cls')
 
-bigText1 = f"""
-{Fore.LIGHTMAGENTA_EX}                                ▄▄▄▄▄▪  ▄ •▄ ▄▄▄▄▄      ▄ •▄     ▄▄▄▄·       ▄▄▄▄▄▄▄▄▄▄▄▄▄ .▄▄▄  
-                                 ██  ██ █▌▄▌▪•██  ▪     █▌▄▌▪    ▐█ ▀█▪▪     •██  •██  ▀▄.▀·▀▄ █·
-                                 ▐█.▪▐█·▐▀▀▄· ▐█.▪ ▄█▀▄ ▐▀▀▄·    ▐█▀▀█▄ ▄█▀▄  ▐█.▪ ▐█.▪▐▀▀▪▄▐▀▀▄ 
-                                 ▐█▌·▐█▌▐█.█▌ ▐█▌·▐█▌.▐▌▐█.█▌    ██▄▪▐█▐█▌.▐▌ ▐█▌· ▐█▌·▐█▄▄▌▐█•█▌
-                                 ▀▀▀ ▀▀▀·▀  ▀ ▀▀▀  ▀█▄▀▪·▀  ▀    ·▀▀▀▀  ▀█▄▀▪ ▀▀▀  ▀▀▀  ▀▀▀ .▀  ▀
-"""
-bigText2 = bigText1.replace('▪', f'{Fore.GREEN}▪{Fore.LIGHTMAGENTA_EX}')
-bigText3 = bigText2.replace('•', f'{Fore.GREEN}•{Fore.LIGHTMAGENTA_EX}')
-bigText4 = bigText3.replace('·', f'{Fore.GREEN}·{Fore.LIGHTMAGENTA_EX}')
-bigText5 = bigText4.replace('.', f'{Fore.GREEN}.{Fore.LIGHTMAGENTA_EX}')
-
-options = f"""
-     {Fore.WHITE}╔═══════════════════════════════╗
-     ║                               ║
-     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}1{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Start{Fore.WHITE}            ║
-     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}2{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Info{Fore.WHITE}             ║
-     ║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}3{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Options{Fore.WHITE}          ║
-     ║                               ║
-     ╚═══════════════════════════════╝
-"""
-
-print(f"{bigText5}")
-type(f'{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Made By: {Fore.LIGHTMAGENTA_EX}Dreamer#5114\n{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Github: {Fore.LIGHTMAGENTA_EX}https://github.com/OriginalAlien/TikTokBotter\n', wait = 0.001)
-print(options)
+printBigText()
+type(f'{" "*round(os.get_terminal_size().columns/2-14)}{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Made By: {Fore.LIGHTMAGENTA_EX}Dreamer#5114 {Fore.WHITE}[{Fore.LIGHTGREEN_EX}<{Fore.WHITE}]\n{" "*round(os.get_terminal_size().columns/2-30)}{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Github: {Fore.LIGHTMAGENTA_EX}https://github.com/OriginalAlien/TikTokBotter {Fore.WHITE}[{Fore.LIGHTGREEN_EX}<{Fore.WHITE}]', wait = 0.01)
+printOptions()
 
 while True:
     choice = input(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>>>{Fore.WHITE}] {Fore.GREEN}Choice: {Fore.LIGHTMAGENTA_EX}")
@@ -571,7 +602,10 @@ while True:
         start()
         break
     elif choice == "2":
-        info()
+        printInfo()
     elif choice == "3":
-        print(options)
-#gig
+        printOptions()
+    elif choice == "4":
+        clear()
+    elif choice =="5":
+        exit()
