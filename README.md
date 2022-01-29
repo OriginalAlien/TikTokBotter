@@ -2,7 +2,7 @@
 Educational Purposes Only. Contact Dreamer#5114 for assistance.
 
 Really Advanced Tool That Uses Zefoy To Bot Your TikTok Follow, Hearts, Views, & Shares!\
-(*I recommend executing it as a .py file for better designs.*)\
+(*I recommend your python version to be 3.6)\
 1. Download Python And Web Chrome Driver.
 2. Install The Modules Required In Python.
 3. In The Code, Put The FIle Location For The Web Chrome Driver EXE.
