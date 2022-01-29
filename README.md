@@ -12,7 +12,7 @@ Really Advanced Tool That Uses Zefoy To Bot Your TikTok Follow, Hearts, Views, &
 
 This Can Now Be Left Over Night. --1/5/2022\
 Updated Designs --1/27/2022\
-Minor Adjustments --1/28/2022\
+Minor Adjustments --1/28/2022
 
 NEW DESIGN Preview:
 ![image](https://user-images.githubusercontent.com/80835991/151470963-9894414f-7a9c-426b-9655-8c2eb487345c.png)
