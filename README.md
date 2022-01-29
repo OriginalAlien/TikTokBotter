@@ -16,6 +16,8 @@ Minor Adjustments --1/28/2022\
 
 NEW DESIGN Preview:
 ![image](https://user-images.githubusercontent.com/80835991/151470963-9894414f-7a9c-426b-9655-8c2eb487345c.png)
-![image](https://user-images.githubusercontent.com/80835991/151471002-d62682bc-f1b9-4c04-ae37-a69a88bbb496.png)
+![image](https://user-images.githubusercontent.com/80835991/151645314-1edffd2d-e1fd-4deb-8528-d87b3c5188e6.png)
+![image](https://user-images.githubusercontent.com/80835991/151645326-7f3e1258-dfd2-4dca-9cec-dfe77260f051.png)
+
 
 Notice: For Some Reason, I Can't Disable Logs From Chrome Driver.
