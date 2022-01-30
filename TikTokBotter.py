@@ -49,7 +49,7 @@ def printOptions():
 {" "*round(os.get_terminal_size().columns/2-16)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}1{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Start{Fore.WHITE}            ║
 {" "*round(os.get_terminal_size().columns/2-16)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}2{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Info{Fore.WHITE}             ║
 {" "*round(os.get_terminal_size().columns/2-16)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}3{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Options{Fore.WHITE}          ║
-{" "*round(os.get_terminal_size().columns/2-16)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}4{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Clear{Fore.WHITE}            ║
+{" "*round(os.get_terminal_size().columns/2-16)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}4{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Clear/Refresh{Fore.WHITE}    ║
 {" "*round(os.get_terminal_size().columns/2-16)}║          {Fore.WHITE}[{Fore.LIGHTGREEN_EX}5{Fore.WHITE}] {Fore.LIGHTMAGENTA_EX}Exit{Fore.WHITE}             ║
 {" "*round(os.get_terminal_size().columns/2-16)}║                               ║
 {" "*round(os.get_terminal_size().columns/2-16)}╚═══════════════════════════════╝
@@ -82,11 +82,12 @@ def clear():
     printOptions()
 
 def start():
-    video_url = input(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>>>{Fore.WHITE}] {Fore.GREEN}Video URL: {Fore.LIGHTMAGENTA_EX}")
+    type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Note: {Fore.LIGHTGREEN_EX}Please Make Sure It's An Actual Valid TikTok Link, It Can Cause Errors Later If Not.", wait = 0.01)
+    video_url = input(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>>>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Video URL: {Fore.LIGHTMAGENTA_EX}")
 
     while "tiktok" not in video_url:
         type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Please Enter A Valid Link.", 0.01)
-        video_url = input(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>>>{Fore.WHITE}] {Fore.GREEN}Video URL: {Fore.LIGHTMAGENTA_EX}")
+        video_url = input(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>>>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Video URL: {Fore.LIGHTMAGENTA_EX}")
         if "tiktok" in video_url:
             type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Opening Chrome Web Driver...\n", 0.01)
             break
@@ -98,9 +99,9 @@ def main(url):
     option = webdriver.ChromeOptions()
     option.add_experimental_option('excludeSwitches', ['enable-logging'])
     try:
-        driver = webdriver.Chrome("Chrome Driver Path Here, Example: C:\\USERS\\User\\OneDrive\\Desktop\\Chromedriver\\chromedriver.exe", options=option) #Put chromedriver.exe file loction between quotation marks using double back slashes.
+        driver = webdriver.Chrome("Chrome Driver Path, Example: C:\\USERS\\User\\OneDrive\\Desktop\\Chromedriver\\chromedriver.exe", options=option) #Put chromedriver.exe file loction between quotation marks using double back slashes.
     except Exception as DriverError:
-        type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Invalid File Location For Chrome Driver Or File Location Hasn't Been Set Yet. Remember To Use Double Slashes.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Line: 101\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Stopped Program.\n", 0.01)
+        type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Invalid File Location For Chrome Driver Or File Location Hasn't Been Set Yet. Remember To Use Double Slashes.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Line: 102\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Stopped Program.\n", 0.01)
         print(f"{DriverError}{Fore.RESET}\n")
         time.sleep(7)
         exit()
@@ -143,6 +144,14 @@ def main(url):
         hearts_cooldown = 0
         views_cooldown = 0
         shares_cooldown = 0
+        Follow_Seconds = 0
+        Follow_Minutes = 0
+        Heart_Seconds = 0
+        Heart_Minutes = 0
+        View_Minutes = 0
+        View_Seconds = 0
+        Share_Minutes = 0
+        Share_Seconds = 0
         Follow_Continue1 = False
         Follow_Continue2 = False
         Heart_Continue1 = False
@@ -180,6 +189,7 @@ def main(url):
                         Follow_Continue1 = False
                         Follow_Seconds = 0
                         Follow_Minutes = 0
+                        follows_cooldown = 0
 
                     if Follow_Continue1 == True:
                         driver.find_element_by_xpath('//*[@id="sid"]/div/form/div/div/button').click()
@@ -237,6 +247,7 @@ def main(url):
                                 type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}An Error Occurred When Attempting To Get Follow's Cool Down. (Skipping){Fore.WHITE}\n", 0.01)
                                 Follow_Minutes = 0
                                 Follow_Seconds = 0
+                                follows_cooldown = 0
 
 
                             type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Follow Cool Down:{Fore.LIGHTCYAN_EX}{Follow_Minutes}{Fore.LIGHTMAGENTA_EX} Minutes And {Fore.LIGHTCYAN_EX}{Follow_Seconds%60}{Fore.LIGHTMAGENTA_EX} Seconds.{Fore.WHITE}\n", 0.01)
@@ -249,6 +260,9 @@ def main(url):
                 except Exception as Follows_Error:
                     type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error Occurred When Attempting To Send Follows.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error: {Follows_Error}{Fore.WHITE}\n", 0.01)
                     driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
+                    Follow_Minutes = 0
+                    Follow_Seconds = 0
+                    follows_cooldown = 0
 
 
                 try:
@@ -263,6 +277,7 @@ def main(url):
                         View_Continue1 = False
                         View_Seconds = 0
                         View_Minutes = 0
+                        views_cooldown = 0
 
                     if View_Continue1 == True:
                         driver.find_element_by_xpath('//*[@id="sid4"]/div/form/div/div/button').click()
@@ -330,6 +345,7 @@ def main(url):
                                 type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}An Error Occurred When Attempting To Get View's Cool Down. (Skipping){Fore.WHITE}\n", 0.01)
                                 View_Minutes = 0
                                 View_Seconds = 0
+                                views_cooldown = 0
 
                             type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}View Cool Down: {Fore.LIGHTCYAN_EX}{View_Minutes}{Fore.LIGHTMAGENTA_EX} Minutes And {Fore.LIGHTCYAN_EX}{View_Seconds%60}{Fore.LIGHTMAGENTA_EX} Seconds.{Fore.WHITE}\n", 0.01)
 
@@ -342,7 +358,9 @@ def main(url):
                 except Exception as Views_Error:
                     type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error Occurred When Attempting To Send Views.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error: {Views_Error}{Fore.WHITE}\n", 0.01)
                     driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
-
+                    View_Minutes = 0
+                    View_Seconds = 0
+                    views_cooldown = 0
                 
 
                 try:
@@ -359,6 +377,7 @@ def main(url):
                         Heart_Continue1 = False
                         Heart_Seconds = 0
                         Heart_Minutes = 0
+                        hearts_cooldown = 0
 
                     if Heart_Continue1 == True:
                         driver.find_element_by_xpath('//*[@id="sid2"]/div/form/div/div/button').click()
@@ -418,6 +437,7 @@ def main(url):
                                 type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}An Error Occurred When Attempting To Get Heart's Cool Down. (Skipping){Fore.WHITE}\n", 0.01)
                                 Heart_Minutes = 0
                                 Heart_Seconds = 0
+                                hearts_cooldown = 0
 
                             type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Heart Cool Down: {Fore.LIGHTCYAN_EX}{Heart_Minutes}{Fore.LIGHTMAGENTA_EX} Minutes And {Fore.LIGHTCYAN_EX}{Heart_Seconds%60}{Fore.LIGHTMAGENTA_EX} Seconds.{Fore.WHITE}\n", 0.01)
 
@@ -429,7 +449,9 @@ def main(url):
                     
                 except Exception as Hearts_Error:
                     type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error Occurred When Attempting To Send Hearts.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error: {Hearts_Error}{Fore.WHITE}\n", 0.01)
-
+                    Heart_Minutes = 0
+                    Heart_Seconds = 0
+                    hearts_cooldown = 0
 
                 try:
                     #Shares
@@ -443,6 +465,7 @@ def main(url):
                         type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.RED}Share Send Page Is Down.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Skipping...\n{Fore.WHITE}", 0.01)
                         Share_Minutes = 0
                         Share_Seconds = 0
+                        shares_cooldown = 0
 
                     if Share_Continue1 == True:
                         driver.find_element_by_xpath('//*[@id="sid7"]/div/form/div/div/button').click()
@@ -501,11 +524,15 @@ def main(url):
                                 type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}An Error Occurred When Attempting To Get Share's Cool Down. (Skipping){Fore.WHITE}\n", 0.01)
                                 Share_Minutes = 0
                                 Share_Seconds = 0
+                                shares_cooldown = 0
 
                             type(f"{Fore.WHITE}[{Fore.LIGHTGREEN_EX}>{Fore.WHITE}] {Fore.LIGHTGREEN_EX}Share Cool Down: {Fore.LIGHTCYAN_EX}{Share_Minutes}{Fore.LIGHTMAGENTA_EX} Minutes And {Fore.LIGHTCYAN_EX}{Share_Seconds%60}{Fore.LIGHTMAGENTA_EX} Seconds.{Fore.WHITE}\n", 0.01)
 
                 except Exception as Shares_Error:
                     type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error Occurred When Attempting To Send Shares.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Error: {Shares_Error}{Fore.WHITE}\n", 0.01)
+                    Share_Minutes = 0
+                    Share_Seconds = 0
+                    shares_cooldown = 0
                     driver.find_element_by_xpath('/html/body/nav/ul/li/a').click()
 
             except Exception as AllError:
@@ -585,6 +612,9 @@ def main(url):
 
             View_Minutes = 0
             View_Seconds = 0
+
+            Share_Minutes = 0
+            Share_Seconds = 0
             type(f"\n{Fore.LIGHTGREEN_EX}Restarting Now...\n", 0.01)
             time.sleep(34)
 
@@ -609,3 +639,5 @@ while True:
         clear()
     elif choice =="5":
         exit()
+        
+#gig
