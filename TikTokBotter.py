@@ -101,7 +101,7 @@ def main(url):
     try:
         driver = webdriver.Chrome("Chrome Driver Path, Example: C:\\USERS\\User\\OneDrive\\Desktop\\Chromedriver\\chromedriver.exe", options=option) #Put chromedriver.exe file loction between quotation marks using double back slashes.
     except Exception as DriverError:
-        type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Invalid File Location For Chrome Driver Or File Location Hasn't Been Set Yet. Remember To Use Double Slashes.\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Line: 102\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Stopped Program.\n", 0.01)
+        type(f"{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Invalid File Location For Chrome Driver Or File Location Hasn't Been Set Yet. Remember To Use Double Slashes. Or Chrome Driver Version Isn't The Same As Chrome. (Make Sure You Delete The Chrome Driver Path Text, Example Before The File Location)\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Line: 102\n{Fore.WHITE}[{Fore.LIGHTRED_EX}>{Fore.WHITE}] {Fore.LIGHTRED_EX}Stopped Program.\n", 0.01)
         print(f"{DriverError}{Fore.RESET}\n")
         time.sleep(7)
         exit()
