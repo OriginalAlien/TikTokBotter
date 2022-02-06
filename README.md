@@ -20,4 +20,4 @@ NEW DESIGN Preview:
 ![image](https://user-images.githubusercontent.com/80835991/151645326-7f3e1258-dfd2-4dca-9cec-dfe77260f051.png)
 
 
-Notice: For Some Reason, I Can't Disable Logs From Chrome Driver.
+Notice: For Some Reason, I Can't Disable Logs From Chrome Driver, Make Sure Your Chrome Is Up To Date And The Chrome Driver Is The Same Version As Your Chrome.
