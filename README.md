@@ -10,4 +10,7 @@ Tool That Uses Zefoy To Bot Your TikTok Follow, Hearts, Views, & Shares!\
 
 ![image](https://user-images.githubusercontent.com/80835991/151645326-7f3e1258-dfd2-4dca-9cec-dfe77260f051.png)
 
+ChromeDriver: https://chromedriver.chromium.org/downloads
+Download the Version that's the same version as your chrome
+
 Update: Revamped, Updated the Xpath, Added custom botting option
