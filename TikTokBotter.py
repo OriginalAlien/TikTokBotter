@@ -105,7 +105,7 @@ class printing():
     def refresh():
         system("cls")
         printing.text()
-        align(f"\n\n\t\t\t{color('>', 'green')}Made By: {Fore.LIGHTMAGENTA_EX}Dreamer#5114 {color('<', 'green')}")
+        align(f"\n\n\t\t\t{color('>', 'green')} Made By: {Fore.LIGHTMAGENTA_EX}Dreamer#5114 {color('<', 'green')}")
         align(f"\t\t\t\t{color('>', 'green')} {Fore.LIGHTGREEN_EX}Github: {Fore.LIGHTMAGENTA_EX}https://github.com/OriginalAlien/TikTokBotter {color('<', 'green')}")
         printing.options()
 
@@ -115,7 +115,7 @@ def start(video, botChoice):
     option.add_experimental_option('excludeSwitches', ['enable-logging'])
     
     try:
-        service = Service(executable_path='C:\\Users\\USER\\OneDrive\\Desktop\\chromedriver.exe')
+        service = Service(executable_path="C:\\Users\\YOUR\\PATH\\HERE\\chromedriver.exe")
         driver = webdriver.Chrome(service=service, options=option)
     except Exception as DriverError:
         print(f"{color('>', 'red')} {Fore.LIGHTRED_EX}Error: {DriverError}")
